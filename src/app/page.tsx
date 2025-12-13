@@ -51,7 +51,7 @@ const InfiniteTestimonials = () => {
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
             <div className="flex animate-scroll">
                 {[...testimonials, ...testimonials].map((testimonial, index) => (
-                    <Card key={index} className="flex flex-col justify-between bg-card border-t-4 border-secondary mx-4 w-[350px] shrink-0">
+                    <Card key={`${testimonial.name}-${index}`} className="flex flex-col justify-between bg-card border-t-4 border-secondary mx-4 w-[350px] shrink-0">
                         <CardContent className="pt-6">
                             <blockquote className="text-foreground text-lg">"{testimonial.quote}"</blockquote>
                         </CardContent>
@@ -92,7 +92,7 @@ export default function Home() {
         
         <div className="relative z-10 flex flex-col items-center animate-in fade-in slide-in-from-top-12 duration-1000">
             <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-foreground">
-              LuzIA
+              FUNDACIÓN LA LUZ
             </h1>
             <p className="mt-4 max-w-2xl text-lg md:text-xl text-muted-foreground font-light tracking-wide">
              Tu Aliado Inteligente en Salud Mental y Rehabilitación
@@ -121,11 +121,11 @@ export default function Home() {
               Ya sea que busques ayuda para ti, para un ser querido, o desees colaborar con nuestra causa, tenemos un punto de partida para ti.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-[450px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {personas.map((persona) => {
              const personaImage = PlaceHolderImages.find((img) => img.id === persona.id);
              return (
-              <div key={persona.id} className="group perspective-1000">
+              <div key={persona.id} className="group perspective-1000 min-h-[450px]">
                 <div className="relative h-full w-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
                   {/* Front of Card */}
                   <div className="absolute w-full h-full backface-hidden">

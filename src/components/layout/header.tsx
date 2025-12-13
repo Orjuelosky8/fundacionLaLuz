@@ -133,7 +133,7 @@ export function Header() {
                 <div className="flex items-center justify-between p-4 border-b border-border/50">
                    <Link href="/" className="flex items-center space-x-2" onClick={() => setMobileMenuOpen(false)}>
                     <Logo className="h-6 w-6 text-primary" />
-                    <span className="font-bold font-headline text-lg text-foreground">LuzIA</span>
+                    <span className="font-bold font-headline text-lg text-foreground">Fundación La Luz</span>
                   </Link>
                   <SheetClose asChild>
                     <Button variant="ghost" size="icon">

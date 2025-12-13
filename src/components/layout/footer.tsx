@@ -28,7 +28,7 @@ export function Footer() {
           <div className="flex flex-col col-span-2 md:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Logo className="h-10 w-10 text-primary" />
-              <span className="font-bold text-2xl font-headline text-foreground tracking-wider uppercase">LuzIA</span>
+              <span className="font-bold text-2xl font-headline text-foreground tracking-wider uppercase">Fundación La Luz</span>
             </Link>
             <p className="text-muted-foreground text-sm max-w-md">
              Una iniciativa de la Fundación La Luz para brindar apoyo accesible, confidencial y basado en tecnología para la salud mental y la rehabilitación.
