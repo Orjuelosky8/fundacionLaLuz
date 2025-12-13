@@ -25,28 +25,6 @@
     --ring: 208 89% 34%;
     --radius: 0.5rem;
   }
-
-  .dark {
-    --background: 220 13% 11%;
-    --foreground: 210 20% 98%;
-    --card: 220 13% 18%;
-    --card-foreground: 210 20% 98%;
-    --popover: 220 13% 11%;
-    --popover-foreground: 210 20% 98%;
-    --primary: 208 89% 55%; /* #2F7EC1 - Azul secundario for dark primary */
-    --primary-foreground: 210 20% 98%;
-    --secondary: 208 89% 34%; /* #0B5FA5 - Azul principal for dark secondary */
-    --secondary-foreground: 210 20% 98%;
-    --muted: 220 13% 24%;
-    --muted-foreground: 210 15% 65%;
-    --accent: 169 33% 64%; /* Lighter Verde apoyo */
-    --accent-foreground: 220 13% 11%;
-    --destructive: 0 63% 40%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 220 13% 24%;
-    --input: 220 13% 24%;
-    --ring: 208 89% 55%;
-  }
 }
 
 @layer base {
@@ -61,5 +39,20 @@
   .font-headline {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
   }
 }
