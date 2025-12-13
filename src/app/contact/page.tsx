@@ -27,6 +27,7 @@ import {
 import { useToast } from '@/hooks/use-toast';
 import { locations } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Card } from '@/components/ui/card';
 
 const contactImage = PlaceHolderImages.find((img) => img.id === 'contact-header');
 
