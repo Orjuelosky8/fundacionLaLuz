@@ -121,7 +121,7 @@ export default function Home() {
               Ya sea que busques ayuda para ti, para un ser querido, o desees colaborar con nuestra causa, tenemos un punto de partida para ti.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-[450px]">
           {personas.map((persona) => {
              const personaImage = PlaceHolderImages.find((img) => img.id === persona.id);
              return (
@@ -129,7 +129,7 @@ export default function Home() {
                 <div className="relative h-full w-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
                   {/* Front of Card */}
                   <div className="absolute w-full h-full backface-hidden">
-                    <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out shadow-lg hover:shadow-2xl hover:shadow-primary/10">
+                    <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out shadow-lg hover:shadow-2xl hover:shadow-primary/10 flex flex-col">
                       <div className="relative h-64 w-full">
                         {personaImage && (
                           <Image
@@ -147,7 +147,7 @@ export default function Home() {
                           <h3 className="font-headline text-3xl text-white">{persona.title}</h3>
                         </div>
                       </div>
-                      <CardContent className="p-6 bg-card">
+                      <CardContent className="p-6 bg-card flex-grow">
                         <p className="text-muted-foreground">{persona.description}</p>
                       </CardContent>
                     </Card>
@@ -250,3 +250,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
