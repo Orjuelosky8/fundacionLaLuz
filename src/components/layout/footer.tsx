@@ -1,17 +1,17 @@
 import Link from 'next/link';
-import { Twitter, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Facebook, Instagram, Youtube } from 'lucide-react';
 import { Logo } from '@/components/icons';
 
 const footerLinks = {
   "Navegación": [
     { label: "Servicios y Sedes", href: "/services-locations" },
-    { label: "Herramientas IA", href: "/mental-health-assessment" },
+    { label: "Evaluación IA", href: "/mental-health-assessment" },
     { label: "Contacto", href: "/contact" },
     { label: "Transparencia", href: "/financials" },
   ],
   "Fundación": [
-      { label: "Nuestra Historia", href: "/" },
-      { label: "Donar", href: "/contact" },
+      { label: "Nuestra Historia", href: "/#about" },
+      { label: "Donar (Plan Padrino)", href: "/contact" },
       { label: "Blog", href: "#" },
   ],
   "Legal": [
@@ -31,7 +31,7 @@ export function Footer() {
               <span className="font-bold text-2xl font-headline text-foreground tracking-wider uppercase">LuzIA</span>
             </Link>
             <p className="text-muted-foreground text-sm max-w-md">
-              Plataforma de inteligencia artificial de la Fundación La Luz para el apoyo en salud mental y la rehabilitación de adicciones.
+             Una iniciativa de la Fundación La Luz para brindar apoyo accesible, confidencial y basado en tecnología para la salud mental y la rehabilitación.
             </p>
              <div className="flex space-x-4 mt-6">
               <Link href="https://www.facebook.com/FundacionLaLuz" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Facebook className="h-6 w-6" /></Link>
@@ -51,7 +51,7 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-12 border-t border-border/50 pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Fundación La Luz. Todos los derechos reservados. Una iniciativa para un futuro más brillante.</p>
+          <p>&copy; {new Date().getFullYear()} Fundación La Luz. Restaurando Vidas, Construyendo Futuros.</p>
            <p className="mt-2">Oficina Nacional: Calle 80 #116B-35, Bogotá (Barrio Alhambra)</p>
         </div>
       </div>

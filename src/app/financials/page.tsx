@@ -6,7 +6,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -16,21 +15,21 @@ const financialDocs = [
   {
     year: '2023',
     documents: [
-      { name: 'Informe Anual 2023', url: '/placeholder.pdf' },
+      { name: 'Informe de Gestión 2023', url: '/placeholder.pdf' },
       { name: 'Estados Financieros Auditados 2023', url: '/placeholder.pdf' },
     ],
   },
   {
     year: '2022',
     documents: [
-      { name: 'Informe Anual 2022', url: '/placeholder.pdf' },
+      { name: 'Informe de Gestión 2022', url: '/placeholder.pdf' },
       { name: 'Estados Financieros Auditados 2022', url: '/placeholder.pdf' },
     ],
   },
   {
     year: '2021',
     documents: [
-      { name: 'Informe Anual 2021', url: '/placeholder.pdf' },
+      { name: 'Informe de Gestión 2021', url: '/placeholder.pdf' },
       { name: 'Estados Financieros Auditados 2021', url: '/placeholder.pdf' },
     ],
   },
@@ -51,7 +50,7 @@ export default function FinancialsPage() {
               />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-black/50 to-black/30 flex items-center justify-center">
-            <h1 className="text-6xl font-headline text-primary-foreground font-bold tracking-wider uppercase">Transparencia Financiera</h1>
+            <h1 className="text-6xl font-headline text-primary-foreground font-bold tracking-wider uppercase">Transparencia</h1>
         </div>
       </div>
 
@@ -65,22 +64,22 @@ export default function FinancialsPage() {
         
         <Accordion type="single" collapsible defaultValue="2023" className="w-full space-y-4">
             {financialDocs.map(item => (
-                <AccordionItem key={item.year} value={item.year} className="bg-card/50 border border-border rounded-lg px-6">
+                <AccordionItem key={item.year} value={item.year} className="bg-card/90 border border-border rounded-lg px-6 shadow-md hover:shadow-xl transition-shadow">
                     <AccordionTrigger className="text-3xl font-headline text-foreground hover:no-underline">
                         Año {item.year}
                     </AccordionTrigger>
                     <AccordionContent>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
                             {item.documents.map(doc => (
-                                <Card key={doc.name} className="bg-secondary/30 border-border">
+                                <Card key={doc.name} className="bg-background border-border">
                                     <CardHeader>
                                         <CardTitle className="text-lg text-foreground">{doc.name}</CardTitle>
                                     </CardHeader>
                                     <CardContent>
-                                        <a href={doc.url} download className="block aspect-video bg-black/20 rounded-md mb-4 flex items-center justify-center group relative overflow-hidden">
+                                        <a href={doc.url} download className="block aspect-video bg-muted/50 rounded-md mb-4 flex items-center justify-center group relative overflow-hidden">
                                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/70 transition-colors duration-300 flex items-center justify-center flex-col gap-2">
                                                 <Download className="w-10 h-10 text-primary transform group-hover:scale-110 transition-transform duration-300"/>
-                                                <span className="text-primary-foreground font-semibold">Descargar</span>
+                                                <span className="text-primary-foreground font-semibold">Descargar PDF</span>
                                            </div>
                                             <object data={doc.url} type="application/pdf" width="100%" height="100%">
                                                 <p className="p-4 text-center text-sm text-muted-foreground">

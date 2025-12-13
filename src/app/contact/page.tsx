@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import Image from 'next/image';
-import { Phone, Mail, MapPin, MessageSquare, Send, Building } from 'lucide-react';
+import { Phone, Mail, MessageSquare, Send, Building } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -43,13 +43,13 @@ const contactChannels = [
         icon: Phone,
         title: "Líneas Telefónicas",
         details: ["Bogotá: 300 829 4982", "Antioquia: 304 448 5555", "Chinauta: 302 218 4853"],
-        action: "Llamar",
+        action: "Llamar Ahora",
         href: "tel:+573008294982"
     },
     {
         icon: MessageSquare,
         title: "Atención vía WhatsApp",
-        details: ["Inicia una conversación directa con un asesor para orientación inmediata."],
+        details: ["Inicia una conversación directa con un asesor para orientación inmediata y confidencial."],
         action: "Chatear Ahora",
         href: "https://wa.me/573008294982"
     },
@@ -109,16 +109,18 @@ export default function ContactPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
             {contactChannels.map(channel => (
-                <Card key={channel.title} className="bg-card/50 border-border hover:border-primary transition-all duration-300 flex flex-col">
+                <Card key={channel.title} className="bg-card/90 border-border hover:border-primary transition-all duration-300 flex flex-col shadow-lg hover:shadow-xl">
                    <CardContent className="p-6 flex-grow">
-                        <channel.icon className="w-10 h-10 text-primary mb-4"/>
+                        <div className="p-3 bg-primary/10 rounded-full inline-block mb-4">
+                            <channel.icon className="w-8 h-8 text-primary"/>
+                        </div>
                         <h3 className="font-headline text-2xl text-foreground mb-2">{channel.title}</h3>
                         <div className="text-muted-foreground text-sm space-y-1">
                             {channel.details.map((detail, i) => <p key={i}>{detail}</p>)}
                         </div>
                    </CardContent>
-                   <div className="p-6 pt-0">
-                     <Button asChild className="w-full rounded-full">
+                   <div className="p-6 pt-0 mt-auto">
+                     <Button asChild className="w-full">
                         <a href={channel.href} target="_blank" rel="noopener noreferrer">{channel.action}</a>
                      </Button>
                    </div>
@@ -130,7 +132,7 @@ export default function ContactPage() {
           <div className="md:col-span-2">
             <h2 className="text-3xl font-headline font-bold mb-4 text-primary">Envíanos un Mensaje</h2>
             <p className="text-muted-foreground mb-8">
-              Si prefieres, completa el siguiente formulario y uno de nuestros especialistas se comunicará contigo a la brevedad.
+              Si prefieres, completa el siguiente formulario y uno de nuestros especialistas se comunicará contigo a la brevedad. Tu consulta es confidencial.
             </p>
             <div className="space-y-4">
                 <div className="flex items-start gap-4">
@@ -154,7 +156,7 @@ export default function ContactPage() {
                         <FormItem>
                           <FormLabel>Nombre Completo</FormLabel>
                           <FormControl>
-                            <Input placeholder="Tu nombre" {...field} className="bg-input/50" />
+                            <Input placeholder="Tu nombre" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -167,7 +169,7 @@ export default function ContactPage() {
                         <FormItem>
                           <FormLabel>Teléfono</FormLabel>
                           <FormControl>
-                            <Input placeholder="Tu número de teléfono" {...field} className="bg-input/50" />
+                            <Input placeholder="Tu número de teléfono" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -182,7 +184,7 @@ export default function ContactPage() {
                         <FormLabel>Sede de preferencia</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-input/50">
+                            <SelectTrigger>
                               <SelectValue placeholder="Selecciona una sede" />
                             </SelectTrigger>
                           </FormControl>
@@ -207,7 +209,7 @@ export default function ContactPage() {
                         <FormControl>
                           <Textarea
                             placeholder="Cuéntanos cómo podemos ayudarte"
-                            className="resize-none bg-input/50"
+                            className="resize-none"
                             rows={4}
                             {...field}
                           />
@@ -216,7 +218,7 @@ export default function ContactPage() {
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full rounded-full">
+                  <Button type="submit" className="w-full">
                     <Send className="mr-2 h-4 w-4"/>
                     Enviar Mensaje
                   </Button>

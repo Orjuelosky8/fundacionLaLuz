@@ -30,9 +30,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="dark" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <body className={cn(
-        "font-body antialiased bg-background text-foreground",
+        "font-sans antialiased",
         playfair.variable,
         ptSans.variable
       )}>

@@ -66,13 +66,13 @@ export default function WellnessRecommendationsPage() {
   return (
     <div className="container mx-auto max-w-4xl px-4 py-16">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold font-headline mb-4">Plataforma de Bienestar Personalizado</h1>
+        <h1 className="text-4xl font-bold font-headline mb-4 text-primary">Plan de Bienestar con IA</h1>
         <p className="text-lg text-muted-foreground">
           Describe tu información de salud y tus metas. Nuestra IA creará un plan con recomendaciones de telemedicina, nutrición y ejercicio para ti.
         </p>
       </div>
 
-      <Card className="shadow-lg">
+      <Card className="shadow-lg bg-card/90">
         <CardHeader>
           <CardTitle className="text-2xl font-headline">Crea tu Plan de Bienestar</CardTitle>
         </CardHeader>
@@ -117,7 +117,7 @@ export default function WellnessRecommendationsPage() {
                 {isLoading ? (
                   <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Generando Recomendaciones...</>
                 ) : (
-                  <><Sparkles className="mr-2 h-4 w-4" /> Generar Mi Plan</>
+                  <><Sparkles className="mr-2 h-4 w-4" /> Generar Mi Plan con IA</>
                 )}
               </Button>
             </form>
@@ -128,37 +128,37 @@ export default function WellnessRecommendationsPage() {
       {result && (
         <div className="mt-12 animate-in fade-in duration-500">
             <h2 className="text-3xl font-bold text-center font-headline mb-8">Tu Plan de Bienestar Personalizado</h2>
-            <Accordion type="single" collapsible defaultValue="telemedicine" className="w-full">
-                <AccordionItem value="telemedicine">
-                    <AccordionTrigger className="text-xl font-semibold">
-                        <div className='flex items-center gap-2'>
-                            <Stethoscope className="text-primary"/>
+            <Accordion type="single" collapsible defaultValue="telemedicine" className="w-full space-y-2">
+                <AccordionItem value="telemedicine" className="bg-card/90 border border-border rounded-lg px-4">
+                    <AccordionTrigger className="text-xl font-semibold hover:no-underline">
+                        <div className='flex items-center gap-3'>
+                            <Stethoscope className="text-primary h-6 w-6"/>
                             Telemedicina
                         </div>
                     </AccordionTrigger>
-                    <AccordionContent className="prose prose-sm max-w-none text-foreground p-4">
+                    <AccordionContent className="prose prose-sm max-w-none text-foreground p-4 pt-0">
                         <p>{result.telemedicineRecommendations}</p>
                     </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="nutrition">
-                    <AccordionTrigger className="text-xl font-semibold">
-                        <div className='flex items-center gap-2'>
-                           <Apple className="text-accent"/>
+                <AccordionItem value="nutrition" className="bg-card/90 border border-border rounded-lg px-4">
+                    <AccordionTrigger className="text-xl font-semibold hover:no-underline">
+                        <div className='flex items-center gap-3'>
+                           <Apple className="text-accent h-6 w-6"/>
                            Nutrición
                         </div>
                     </AccordionTrigger>
-                    <AccordionContent className="prose prose-sm max-w-none text-foreground p-4">
+                    <AccordionContent className="prose prose-sm max-w-none text-foreground p-4 pt-0">
                         <p>{result.nutritionRecommendations}</p>
                     </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="exercise">
-                    <AccordionTrigger className="text-xl font-semibold">
-                       <div className='flex items-center gap-2'>
-                           <Dumbbell className="text-secondary"/>
+                <AccordionItem value="exercise" className="bg-card/90 border border-border rounded-lg px-4">
+                    <AccordionTrigger className="text-xl font-semibold hover:no-underline">
+                       <div className='flex items-center gap-3'>
+                           <Dumbbell className="text-secondary h-6 w-6"/>
                             Ejercicio
                         </div>
                     </AccordionTrigger>
-                    <AccordionContent className="prose prose-sm max-w-none text-foreground p-4">
+                    <AccordionContent className="prose prose-sm max-w-none text-foreground p-4 pt-0">
                         <p>{result.exerciseRecommendations}</p>
                     </AccordionContent>
                 </AccordionItem>

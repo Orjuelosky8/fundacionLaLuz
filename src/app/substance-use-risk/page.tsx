@@ -65,16 +65,16 @@ export default function SubstanceUseRiskPage() {
   return (
     <div className="container mx-auto max-w-4xl px-4 py-16">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold font-headline mb-4">Herramienta de Reducción de Riesgo</h1>
+        <h1 className="text-4xl font-bold font-headline mb-4 text-primary">Herramienta de Guía sobre Sustancias</h1>
         <p className="text-lg text-muted-foreground">
-          Comparte información sobre tu situación para recibir una evaluación de riesgo, guía personalizada y recursos de apoyo sobre el uso de sustancias. Toda la información es confidencial.
+          Comparte información sobre tu situación para recibir una evaluación de riesgo, guía personalizada y recursos de apoyo sobre el uso de sustancias. Toda la información es confidencial y procesada por IA.
         </p>
          <p className="text-sm text-amber-700 mt-2">
             <strong>Importante:</strong> Esta herramienta es para orientación y no constituye un diagnóstico médico. Si estás en una crisis, busca ayuda profesional de inmediato.
         </p>
       </div>
 
-      <Card className="shadow-lg">
+      <Card className="shadow-lg bg-card/90">
         <CardHeader>
           <CardTitle className="text-2xl font-headline">Información Confidencial</CardTitle>
         </CardHeader>
@@ -86,9 +86,9 @@ export default function SubstanceUseRiskPage() {
                 name="userDetails"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Detalles del usuario</FormLabel>
+                    <FormLabel>Sobre ti (edad, género, etc.)</FormLabel>
                     <FormControl>
-                      <Input placeholder="Ej: Hombre, 25 años" {...field} />
+                      <Input placeholder="Ej: Mujer, 32 años, profesional" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -99,10 +99,10 @@ export default function SubstanceUseRiskPage() {
                 name="concerns"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Preocupaciones específicas</FormLabel>
+                    <FormLabel>¿Cuál es tu principal preocupación?</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Ej: Estoy preocupado por mi consumo de alcohol los fines de semana..."
+                        placeholder="Ej: Estoy preocupado por mi consumo de alcohol los fines de semana y cómo afecta a mi familia..."
                         className="resize-y"
                         {...field}
                       />
@@ -116,10 +116,10 @@ export default function SubstanceUseRiskPage() {
                 name="substanceUseHistory"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Historial de consumo (Opcional)</FormLabel>
+                    <FormLabel>Historial de consumo (Opcional, pero ayuda a la IA)</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Describe tu historial de consumo si te sientes cómodo."
+                        placeholder="Describe tu historial de consumo si te sientes cómodo/a."
                         className="resize-y"
                         {...field}
                       />
@@ -133,10 +133,10 @@ export default function SubstanceUseRiskPage() {
                 name="familyHistory"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Historial familiar (Opcional)</FormLabel>
+                    <FormLabel>Historial familiar relevante (Opcional)</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Describe si hay historial familiar relevante."
+                        placeholder="Describe si hay historial familiar de adicciones o salud mental."
                         className="resize-y"
                         {...field}
                       />
@@ -149,7 +149,7 @@ export default function SubstanceUseRiskPage() {
                 {isLoading ? (
                   <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Procesando...</>
                 ) : (
-                  <><Sparkles className="mr-2 h-4 w-4" /> Obtener Guía</>
+                  <><Sparkles className="mr-2 h-4 w-4" /> Obtener Guía de IA</>
                 )}
               </Button>
             </form>
@@ -162,7 +162,7 @@ export default function SubstanceUseRiskPage() {
             <h2 className="text-3xl font-bold text-center font-headline">Tu Guía Personalizada</h2>
             <Card>
                 <CardHeader>
-                    <CardTitle className="flex items-center gap-2"><ClipboardCheck className="text-primary"/> Evaluación de Riesgo</CardTitle>
+                    <CardTitle className="flex items-center gap-2"><ClipboardCheck className="text-primary"/> Evaluación de Riesgo por IA</CardTitle>
                 </CardHeader>
                 <CardContent className="prose prose-sm max-w-none text-foreground">
                     <p>{result.riskAssessment}</p>

@@ -61,7 +61,7 @@ export default function MentalHealthAssessmentPage() {
   return (
     <div className="container mx-auto max-w-4xl px-4 py-16">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold font-headline mb-4">Evaluación de Salud Mental con IA</h1>
+        <h1 className="text-4xl font-bold font-headline mb-4 text-primary">Evaluación de Salud Mental con IA</h1>
         <p className="text-lg text-muted-foreground">
           Describe cómo te sientes, tus niveles de estrés, ansiedad o cualquier otra preocupación. Nuestra IA te proporcionará una evaluación inicial y sugerencias de apoyo.
         </p>
@@ -70,7 +70,7 @@ export default function MentalHealthAssessmentPage() {
         </p>
       </div>
 
-      <Card className="shadow-lg">
+      <Card className="shadow-lg bg-card/90">
         <CardHeader>
             <CardTitle className="text-2xl font-headline">Describe tu estado actual</CardTitle>
         </CardHeader>
@@ -103,7 +103,7 @@ export default function MentalHealthAssessmentPage() {
                 ) : (
                   <>
                     <Sparkles className="mr-2 h-4 w-4" />
-                    Obtener Evaluación
+                    Obtener Evaluación de IA
                   </>
                 )}
               </Button>

@@ -18,7 +18,7 @@ import { Logo } from '@/components/icons';
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
-  { href: '/services-locations', label: 'Servicios y Sedes' },
+  { href: '/services-locations', label: 'Programas' },
   {
     label: 'Herramientas IA',
     subLinks: [
@@ -36,9 +36,9 @@ const navLinks = [
       },
       {
         href: '/substance-use-risk',
-        label: 'Reducción de Riesgo',
+        label: 'Guía de Reducción de Riesgo',
         icon: ShieldCheck,
-        description: 'Guía sobre uso de sustancias.'
+        description: 'Orientación sobre uso de sustancias.'
       },
     ],
   },
@@ -51,7 +51,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg">
       <div className="container flex h-20 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Logo className="h-8 w-8 text-primary" />
@@ -67,7 +67,7 @@ export function Header() {
                   <button
                     className={cn(
                       'flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-primary focus:outline-none',
-                      link.subLinks.some((sl) => pathname === sl.href) &&
+                      link.subLinks.some((sl) => pathname.startsWith(sl.href)) &&
                         'text-primary'
                     )}
                   >

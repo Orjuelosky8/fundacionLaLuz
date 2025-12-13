@@ -10,19 +10,19 @@ export const testimonials: Testimonial[] = [
     name: 'Ana García',
     role: 'Familiar de paciente',
     avatarUrl: testimonialImage1,
-    quote: 'LuzIA nos dio las herramientas para entender y apoyar a nuestro hijo. La guía fue clara y compasiva, un verdadero salvavidas en un momento de crisis.',
+    quote: 'La Fundación nos dio las herramientas para entender y apoyar a nuestro hijo. La guía fue clara y compasiva, un verdadero salvavidas en un momento de crisis.',
   },
   {
     name: 'Carlos Vera',
     role: 'Usuario en recuperación',
     avatarUrl: testimonialImage2,
-    quote: 'La autoevaluación me ayudó a poner en palabras lo que sentía. A partir de ahí, el plan de bienestar personalizado ha sido clave en mi progreso diario.',
+    quote: 'La autoevaluación con IA me ayudó a poner en palabras lo que sentía. A partir de ahí, el plan de bienestar personalizado ha sido clave en mi progreso diario.',
   },
   {
     name: 'Dr. Sofia Reyes',
     role: 'Profesional Aliada',
     avatarUrl: testimonialImage3,
-    quote: 'Integrar las herramientas de LuzIA en nuestra práctica nos ha permitido ofrecer un apoyo más completo y basado en datos a nuestros pacientes. Es el futuro de la salud mental.',
+    quote: 'Creer en cada paciente y dedicarles el tiempo necesario es nuestra misión. Verlos descubrir lo mejor de sí mismos es la mayor recompensa.',
   },
 ];
 

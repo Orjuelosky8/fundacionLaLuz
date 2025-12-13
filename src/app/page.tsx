@@ -8,14 +8,11 @@ import {
   BrainCircuit,
   Bot,
   ShieldCheck,
-  Building,
-  Target,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Badge } from '@/components/ui/badge';
 import { testimonials } from '@/lib/data';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
@@ -25,7 +22,7 @@ const heroImage = PlaceHolderImages.find((img) => img.id === 'hero');
 const personas = [
   {
     id: 'family-persona',
-    title: 'Soy Familiar',
+    title: 'Soy Familiar o Amigo',
     description: 'Encuentra recursos y obtén orientación para apoyar a tu ser querido en su proceso de recuperación.',
     icon: Users,
     href: '/contact'
@@ -39,7 +36,7 @@ const personas = [
   },
   {
     id: 'ally-persona',
-    title: 'Soy EPS/Aliado',
+    title: 'Soy Aliado o Empresa',
     description: 'Conoce cómo podemos colaborar para ampliar el alcance de nuestros tratamientos y programas de prevención.',
     icon: Stethoscope,
     href: '/contact'
@@ -57,11 +54,11 @@ export default function Home() {
             alt={heroImage.description}
             data-ai-hint={heroImage.imageHint}
             fill
-            className="object-cover scale-110 blur-sm"
+            className="object-cover scale-105"
             priority
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/30 via-background/50 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/70 to-background" />
         
         <div className="relative z-10 flex flex-col items-center">
             <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-foreground">
@@ -86,12 +83,20 @@ export default function Home() {
 
       {/* Personas Section */}
       <section className="py-16 md:py-24 container mx-auto">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="font-headline text-4xl md:text-5xl text-primary mb-4">
+            Un Camino para Cada Necesidad
+          </h2>
+           <p className="text-muted-foreground text-lg">
+              Ya sea que busques ayuda para ti, para un ser querido, o desees colaborar con nuestra causa, tenemos un punto de partida para ti.
+          </p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {personas.map((persona) => {
              const personaImage = PlaceHolderImages.find((img) => img.id === persona.id);
              return (
               <Link href={persona.href} key={persona.id} className="group block">
-                <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out border-2 border-transparent group-hover:border-primary group-hover:shadow-2xl group-hover:shadow-primary/20">
+                <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-primary/10 transform hover:-translate-y-2">
                   <div className="relative h-64 w-full">
                     {personaImage && (
                        <Image
@@ -103,7 +108,9 @@ export default function Home() {
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                     <div className="absolute bottom-0 left-0 p-6">
-                      <persona.icon className="h-10 w-10 text-primary mb-2 p-2 bg-background/80 rounded-lg"/>
+                      <div className="p-3 bg-background/80 rounded-lg backdrop-blur-sm inline-block mb-2">
+                        <persona.icon className="h-8 w-8 text-primary"/>
+                      </div>
                       <h3 className="font-headline text-3xl text-white">{persona.title}</h3>
                     </div>
                   </div>
@@ -117,7 +124,7 @@ export default function Home() {
       </section>
 
        {/* AI Features Section */}
-      <section className="bg-secondary/10 py-16 md:py-24">
+      <section className="bg-muted/30 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="font-headline text-4xl md:text-5xl text-primary mb-4">
@@ -128,31 +135,37 @@ export default function Home() {
             </p>
           </div>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="bg-card/80 backdrop-blur-sm transform hover:-translate-y-2 transition-transform duration-300">
-              <CardHeader>
-                  <Bot className="h-10 w-10 text-primary mb-2"/>
-                  <CardTitle className="font-headline text-2xl">Evaluación de Salud Mental</CardTitle>
+            <Card className="bg-card/80 backdrop-blur-sm transform hover:-translate-y-2 transition-transform duration-300 border-t-4 border-primary">
+              <CardHeader className="text-center items-center">
+                  <div className="p-4 bg-primary/10 rounded-full inline-block">
+                    <Bot className="h-8 w-8 text-primary"/>
+                  </div>
+                  <CardTitle className="font-headline text-2xl pt-2">Evaluación de Salud Mental</CardTitle>
               </CardHeader>
-              <CardContent>
-                  <p className="text-muted-foreground">Analiza tu estado de ánimo y niveles de estrés a través de una conversación guiada por IA.</p>
+              <CardContent className="text-center">
+                  <p className="text-muted-foreground">Analiza tu estado de ánimo y niveles de estrés a través de una conversación guiada por IA para obtener una orientación inicial.</p>
               </CardContent>
             </Card>
-            <Card className="bg-card/80 backdrop-blur-sm transform hover:-translate-y-2 transition-transform duration-300">
-              <CardHeader>
-                  <BrainCircuit className="h-10 w-10 text-primary mb-2"/>
-                  <CardTitle className="font-headline text-2xl">Planes de Bienestar</CardTitle>
+            <Card className="bg-card/80 backdrop-blur-sm transform hover:-translate-y-2 transition-transform duration-300 border-t-4 border-accent">
+              <CardHeader className="text-center items-center">
+                   <div className="p-4 bg-accent/10 rounded-full inline-block">
+                    <BrainCircuit className="h-8 w-8 text-accent"/>
+                  </div>
+                  <CardTitle className="font-headline text-2xl pt-2">Planes de Bienestar</CardTitle>
               </CardHeader>
-              <CardContent>
-                  <p className="text-muted-foreground">Recibe recomendaciones personalizadas de nutrición, ejercicio y telemedicina según tus metas.</p>
+              <CardContent className="text-center">
+                  <p className="text-muted-foreground">Recibe recomendaciones personalizadas de nutrición, ejercicio y telemedicina según tus metas y estado de salud.</p>
               </CardContent>
             </Card>
-            <Card className="bg-card/80 backdrop-blur-sm transform hover:-translate-y-2 transition-transform duration-300">
-              <CardHeader>
-                  <ShieldCheck className="h-10 w-10 text-primary mb-2"/>
-                  <CardTitle className="font-headline text-2xl">Reducción de Riesgo</CardTitle>
+            <Card className="bg-card/80 backdrop-blur-sm transform hover:-translate-y-2 transition-transform duration-300 border-t-4 border-luz-yellow">
+              <CardHeader className="text-center items-center">
+                  <div className="p-4 bg-luz-yellow/10 rounded-full inline-block">
+                    <ShieldCheck className="h-8 w-8 text-luz-yellow"/>
+                  </div>
+                  <CardTitle className="font-headline text-2xl pt-2">Guía de Reducción de Riesgo</CardTitle>
               </CardHeader>
-              <CardContent>
-                  <p className="text-muted-foreground">Obtén guía y recursos sobre el consumo de sustancias para ti o para un familiar.</p>
+              <CardContent className="text-center">
+                  <p className="text-muted-foreground">Obtén orientación y recursos sobre el consumo de sustancias para ti o para un familiar, de forma confidencial.</p>
               </CardContent>
             </Card>
           </div>
@@ -166,22 +179,22 @@ export default function Home() {
               Historias que Inspiran
             </h2>
              <p className="text-muted-foreground text-lg">
-                El impacto de LuzIA y la Fundación La Luz, contado por quienes han formado parte de nuestra comunidad.
+                El impacto de la Fundación La Luz, contado por quienes han formado parte de nuestra comunidad.
             </p>
           </div>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-               <Card key={index} className="flex flex-col justify-between bg-secondary/5 border-transparent">
+               <Card key={index} className="flex flex-col justify-between bg-card border-t-4 border-secondary">
                   <CardContent className="pt-6">
-                    <blockquote className="text-foreground italic">"{testimonial.quote}"</blockquote>
+                    <blockquote className="text-foreground text-lg">"{testimonial.quote}"</blockquote>
                   </CardContent>
-                  <CardHeader className="flex-row items-center gap-4">
-                    <Avatar>
+                  <CardHeader className="flex-row items-center gap-4 pt-4">
+                    <Avatar className="h-14 w-14 border-2 border-primary">
                         <AvatarImage src={testimonial.avatarUrl} alt={testimonial.name} />
                         <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
                     </Avatar>
                     <div>
-                        <p className="font-semibold text-foreground">{testimonial.name}</p>
+                        <p className="font-semibold text-foreground text-lg">{testimonial.name}</p>
                         <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                     </div>
                   </CardHeader>
@@ -191,7 +204,7 @@ export default function Home() {
       </section>
       
       {/* CTA Section */}
-      <section className="bg-primary/90 py-20 text-center text-primary-foreground">
+      <section className="bg-primary text-primary-foreground py-20 text-center">
         <div className="container mx-auto px-4">
           <h2 className="font-headline text-4xl md:text-5xl font-bold">
             ¿Listo para dar el primer paso?
@@ -200,7 +213,7 @@ export default function Home() {
             Tu camino hacia el bienestar comienza aquí. Contacta con nuestros
             especialistas o explora nuestras herramientas de IA hoy mismo.
           </p>
-          <Button asChild size="lg" variant="secondary" className="mt-8 bg-background text-foreground hover:bg-background/90">
+          <Button asChild size="lg" variant="secondary" className="mt-8">
             <Link href="/contact">Contactar Ahora</Link>
           </Button>
         </div>
