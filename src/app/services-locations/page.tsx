@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { BrainCircuit, Bot, ShieldCheck, MapPin, Phone, Clock } from 'lucide-react';
+import { GitBranch, Activity, Handshake, Brain, Syringe, Users, MapPin, Phone, Clock } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { locations } from '@/lib/data';
@@ -7,10 +7,44 @@ import { Button } from '@/components/ui/button';
 
 const servicesImage = PlaceHolderImages.find((img) => img.id === 'services-header');
 
+const services = [
+    {
+        icon: GitBranch,
+        title: "Rehabilitación Residencial",
+        description: "Programas de internamiento 24/7 en un entorno controlado y seguro, con supervisión médica y terapéutica constante para interrumpir el consumo.",
+    },
+    {
+        icon: Activity,
+        title: "Tratamiento Ambulatorio",
+        description: "Programas flexibles que permiten continuar la rehabilitación sin internamiento completo, asistiendo a sesiones terapéuticas y de consejería regulares.",
+    },
+    {
+        icon: Brain,
+        title: "Consulta Externa en Salud Mental",
+        description: "Servicios especializados en psicología, psiquiatría, toxicología y más, disponibles de forma presencial o por telemedicina para pacientes y familias.",
+    },
+    {
+        icon: Syringe,
+        title: "Pruebas Toxicológicas",
+        description: "Realización de pruebas de laboratorio que detectan más de 20 sustancias psicoactivas, apoyando el diagnóstico y monitoreo de la abstinencia.",
+    },
+    {
+        icon: Users,
+        title: "Apoyo Psicoterapéutico y Ocupacional",
+        description: "Sesiones individuales y grupales para pacientes y familiares, junto a terapia ocupacional para reestructurar proyectos de vida saludables.",
+    },
+    {
+        icon: Handshake,
+        title: "Seguimiento Post-Rehabilitación",
+        description: "Programas de apoyo continuo tras el egreso para facilitar la transición, prevenir recaídas y mantener la sobriedad a largo plazo.",
+    },
+];
+
+
 export default function ServicesLocationsPage() {
   return (
-    <>
-      <div className="relative h-64 w-full bg-primary">
+    <div className="bg-background">
+      <div className="relative h-80 w-full">
         {servicesImage && (
              <Image
                 src={servicesImage.imageUrl}
@@ -20,81 +54,61 @@ export default function ServicesLocationsPage() {
                 className="object-cover"
               />
         )}
-        <div className="absolute inset-0 bg-primary/70 flex items-center justify-center">
-            <h1 className="text-5xl font-bold text-primary-foreground font-headline">Servicios y Sedes</h1>
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-black/50 to-black/30 flex items-center justify-center">
+            <h1 className="text-6xl font-headline text-primary-foreground font-bold tracking-wider uppercase">Programas y Sedes</h1>
         </div>
       </div>
 
-      <div className="container mx-auto max-w-6xl px-4 py-16">
+      <div className="container mx-auto max-w-7xl px-4 py-16 md:py-24">
         {/* Services Section */}
         <section className="mb-20">
-            <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold mb-4 font-headline">Nuestros Servicios Digitales</h2>
-                <p className="text-muted-foreground max-w-3xl mx-auto">
-                    Aprovechamos la tecnología de inteligencia artificial para ofrecer apoyo accesible y personalizado, disponible en cualquier momento y lugar.
+            <div className="text-center mb-16">
+                <h2 className="text-4xl font-headline font-bold mb-4 text-primary">Nuestros Programas y Servicios</h2>
+                <p className="text-muted-foreground max-w-4xl mx-auto">
+                    Ofrecemos una atención integral que abarca desde la prevención hasta la intervención terapéutica y la reintegración social, con un modelo clínico-comunitario basado en evidencia científica.
                 </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <Card className="text-center">
-                    <CardHeader className="items-center">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
-                            <BrainCircuit className="h-8 w-8" />
-                        </div>
-                        <CardTitle>Evaluación de Salud Mental</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="text-muted-foreground">Utiliza nuestra herramienta de IA para una evaluación inicial de tu estado de ánimo, estrés y ansiedad. Recibe sugerencias y recursos para dar el siguiente paso.</p>
-                    </CardContent>
-                </Card>
-                <Card className="text-center">
-                    <CardHeader className="items-center">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
-                            <Bot className="h-8 w-8" />
-                        </div>
-                        <CardTitle>Planes de Bienestar Personalizados</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="text-muted-foreground">Obtén recomendaciones de telemedicina, nutrición y ejercicio adaptadas a tus necesidades y metas de bienestar, generadas por nuestra IA.</p>
-                    </CardContent>
-                </Card>
-                <Card className="text-center">
-                    <CardHeader className="items-center">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
-                            <ShieldCheck className="h-8 w-8" />
-                        </div>
-                        <CardTitle>Reducción de Riesgo de Sustancias</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="text-muted-foreground">Herramienta de IA que ofrece guía y recursos para la reducción de riesgos asociados al uso de sustancias, para individuos y sus familias.</p>
-                    </CardContent>
-                </Card>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {services.map((service) => (
+                     <Card key={service.title} className="bg-card/50 border-border hover:border-primary transition-all duration-300 flex flex-col text-center">
+                        <CardHeader className="items-center">
+                            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+                                <service.icon className="h-8 w-8" />
+                            </div>
+                            <CardTitle className="font-headline text-2xl">{service.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="flex-grow">
+                            <p className="text-muted-foreground">{service.description}</p>
+                        </CardContent>
+                    </Card>
+                ))}
             </div>
         </section>
 
         {/* Locations Section */}
         <section>
-            <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold mb-4 font-headline">Nuestras Sedes Físicas</h2>
+            <div className="text-center mb-16">
+                <h2 className="text-4xl font-headline font-bold mb-4 text-primary">Nuestras Sedes de Rehabilitación</h2>
                 <p className="text-muted-foreground max-w-3xl mx-auto">
-                    Encuentra un espacio seguro y profesional en nuestras sedes. Estamos listos para recibirte y acompañarte en tu proceso.
+                    Contamos con tres sedes debidamente habilitadas donde atendemos tanto a pacientes particulares como a personas remitidas por EPS.
                 </p>
             </div>
             <div className="space-y-8">
                 {locations.map((location) => (
-                    <Card key={location.name} className="overflow-hidden shadow-md transition-shadow hover:shadow-xl">
+                    <Card key={location.name} className="overflow-hidden shadow-lg bg-card/50 border-border transition-shadow hover:shadow-primary/20">
                         <div className="grid grid-cols-1 md:grid-cols-3">
-                             <div className="md:col-span-2 p-6">
-                                <CardTitle className="text-2xl font-headline mb-4">{location.name}</CardTitle>
+                             <div className="md:col-span-2 p-8">
+                                <CardTitle className="text-3xl font-headline text-foreground mb-4">{location.name}</CardTitle>
                                 <div className="space-y-3 text-muted-foreground">
-                                    <p className="flex items-center"><MapPin className="w-5 h-5 mr-3 text-primary"/>{location.address}</p>
-                                    <p className="flex items-center"><Phone className="w-5 h-5 mr-3 text-primary"/>{location.phone}</p>
-                                    <p className="flex items-center"><Clock className="w-5 h-5 mr-3 text-primary"/>{location.hours}</p>
+                                    <p className="flex items-center gap-3"><MapPin className="w-5 h-5 text-primary"/>{location.address}</p>
+                                    <p className="flex items-center gap-3"><Phone className="w-5 h-5 text-primary"/>{location.phone}</p>
+                                    <p className="flex items-center gap-3"><Clock className="w-5 h-5 text-primary"/>{location.hours}</p>
                                 </div>
                             </div>
-                            <div className="bg-slate-50 dark:bg-slate-800 p-6 flex flex-col justify-center items-center md:items-start">
-                                <h3 className="font-semibold mb-2">¿Cómo llegar?</h3>
-                                <p className="text-sm text-muted-foreground mb-4 text-center md:text-left">Obtén la dirección en tu aplicación de mapas.</p>
-                                <Button asChild>
+                            <div className="bg-secondary/30 p-8 flex flex-col justify-center items-start">
+                                <h3 className="font-semibold text-lg text-foreground mb-2">¿Cómo llegar?</h3>
+                                <p className="text-sm text-muted-foreground mb-4">Obtén la dirección en tu aplicación de mapas.</p>
+                                <Button asChild className="rounded-full">
                                     <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.address)}`} target="_blank" rel="noopener noreferrer">
                                         Abrir en Mapas
                                     </a>
@@ -106,6 +120,6 @@ export default function ServicesLocationsPage() {
             </div>
         </section>
       </div>
-    </>
+    </div>
   );
 }

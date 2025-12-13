@@ -8,31 +8,22 @@ import {
   BrainCircuit,
   Bot,
   ShieldCheck,
+  Building,
+  Target,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
-import { Badge } from '@/components/ui/badge';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { testimonials } from '@/lib/data';
+import { Badge } from '@/components/ui/badge';
 
 const heroImage = PlaceHolderImages.find((img) => img.id === 'hero');
-const familyImage = PlaceHolderImages.find((img) => img.id === 'family-persona');
-const treatmentImage = PlaceHolderImages.find((img) => img.id === 'treatment-persona');
-const allyImage = PlaceHolderImages.find((img) => img.id === 'ally-persona');
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] w-full">
+      <section className="relative h-[80vh] min-h-[600px] w-full flex items-center justify-center">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
@@ -43,234 +34,178 @@ export default function Home() {
             priority
           />
         )}
-        <div className="absolute inset-0 bg-primary/70" />
-        <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-primary-foreground">
-          <h1 className="font-headline text-5xl font-bold md:text-7xl">
-            Luz en tu camino
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        <div className="relative z-10 flex h-full flex-col items-center justify-end text-center pb-20 md:pb-32 px-4">
+          <Badge className="mb-4 bg-primary/10 text-primary border border-primary/20">
+            Fundación La Luz
+          </Badge>
+          <h1 className="font-headline text-6xl font-bold md:text-8xl text-primary-foreground uppercase tracking-wider">
+            Restaurando Vidas, Construyendo Futuros
           </h1>
-          <p className="mt-4 max-w-2xl text-lg md:text-xl">
-            Herramientas de IA para el bienestar mental y la recuperación.
-            Confianza, estructura y apoyo a tu alcance.
+          <p className="mt-4 max-w-3xl text-lg md:text-xl text-muted-foreground">
+            Pioneros en Latinoamérica con más de 27 años de trayectoria en la
+            rehabilitación de adicciones y el cuidado de la salud mental.
           </p>
           <div className="mt-8 flex gap-4">
-            <Button asChild size="lg">
-              <Link href="/services-locations">Descubre Nuestros Servicios</Link>
+            <Button asChild size="lg" className="rounded-full">
+              <Link href="/services-locations">Nuestros Programas</Link>
             </Button>
-            <Button asChild size="lg" variant="secondary">
+            <Button asChild size="lg" variant="outline" className="rounded-full border-primary text-primary hover:bg-primary/10">
               <Link href="/contact">Habla con nosotros</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Personas Section */}
-      <section className="bg-background py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-center font-headline text-4xl font-bold text-foreground">
-            Encuentra el apoyo que necesitas
-          </h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <Card className="transform-gpu transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
-              <CardHeader className="items-center">
-                {familyImage && (
-                  <div className="relative mb-4 h-40 w-full">
-                    <Image
-                      src={familyImage.imageUrl}
-                      alt={familyImage.description}
-                      data-ai-hint={familyImage.imageHint}
-                      fill
-                      className="rounded-t-lg object-cover"
-                    />
-                  </div>
-                )}
-                <HeartHandshake className="mb-2 h-12 w-12 text-primary" />
-                <CardTitle className="font-headline text-2xl">
-                  Soy Familiar
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="mb-6">
-                  Recursos y guía para apoyar a tus seres queridos en su proceso
-                  de recuperación.
-                </p>
-                <Button asChild variant="outline">
-                  <Link href="/substance-use-risk">Guía Familiar</Link>
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="transform-gpu transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
-              <CardHeader className="items-center">
-                {treatmentImage && (
-                  <div className="relative mb-4 h-40 w-full">
-                    <Image
-                      src={treatmentImage.imageUrl}
-                      alt={treatmentImage.description}
-                      data-ai-hint={treatmentImage.imageHint}
-                      fill
-                      className="rounded-t-lg object-cover"
-                    />
-                  </div>
-                )}
-                <Stethoscope className="mb-2 h-12 w-12 text-primary" />
-                <CardTitle className="font-headline text-2xl">
-                  Busco Tratamiento
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="mb-6">
-                  Evalúa tu estado y descubre planes personalizados para tu
-                  bienestar y salud mental.
-                </p>
-                <Button asChild variant="outline">
-                  <Link href="/mental-health-assessment">Autoevaluación</Link>
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="transform-gpu transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
-              <CardHeader className="items-center">
-                {allyImage && (
-                  <div className="relative mb-4 h-40 w-full">
-                    <Image
-                      src={allyImage.imageUrl}
-                      alt={allyImage.description}
-                      data-ai-hint={allyImage.imageHint}
-                      fill
-                      className="rounded-t-lg object-cover"
-                    />
-                  </div>
-                )}
-                <Users className="mb-2 h-12 w-12 text-primary" />
-                <CardTitle className="font-headline text-2xl">
-                  Soy EPS/Aliado
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="mb-6">
-                  Colabora con nosotros para extender el alcance de nuestros
-                  programas de salud.
-                </p>
-                <Button asChild variant="outline">
-                  <Link href="/contact">Contacto Institucional</Link>
-                </Button>
-              </CardContent>
-            </Card>
+      {/* History and Mission Section */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <h2 className="font-headline text-5xl text-primary">
+              Historia y Misión
+            </h2>
+            <p className="text-muted-foreground">
+              La Fundación La Luz es una Institución Prestadora de Servicios de
+              Salud (IPS) de carácter privado, sin ánimo de lucro, con más de 27
+              años de trayectoria en Colombia. Fundada a mediados de la década
+              de 1990, ha sido pionera en Latinoamérica en la implementación de
+              modelos de tratamiento de adicciones basados en evidencia
+              científica.
+            </p>
+            <blockquote className="border-l-4 border-primary pl-4 italic text-foreground">
+              “Creer en cada uno de nuestros pacientes, dedicarles el tiempo
+              necesario y proporcionarles las herramientas que necesitan para
+              desarrollar su potencial y descubrir lo mejor en ellos”.
+            </blockquote>
+            <p className="text-muted-foreground">
+              Esta misión evidencia un enfoque humanizado, donde cada paciente
+              es valorado de forma individual, recibiendo acompañamiento
+              cercano y las herramientas para su crecimiento personal.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-2xl transform rotate-3 translate-y-4">
+               <Image src="https://picsum.photos/seed/history1/300/400" alt="Hope and recovery" fill className="object-cover"/>
+            </div>
+            <div className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-2xl transform -rotate-2 -translate-y-4">
+               <Image src="https://picsum.photos/seed/history2/300/400" alt="Building a new future" fill className="object-cover"/>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="bg-slate-50 py-16 md:py-24">
+      {/* Objectives and Vision Section */}
+      <section className="bg-secondary/50 py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
-          <Badge
-            className="mb-4 bg-yellow-400 text-yellow-900"
-            style={{
-              backgroundColor: 'hsl(45 87% 63% / 0.2)',
-              color: 'hsl(45 87% 30%)',
-            }}
-          >
-            Nuestras Herramientas IA
-          </Badge>
-          <h2 className="mb-12 font-headline text-4xl font-bold text-foreground">
-            Tecnología con propósito humano
-          </h2>
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-10 md:grid-cols-3">
-            <div className="flex flex-col items-center">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <BrainCircuit className="h-8 w-8" />
-              </div>
-              <h3 className="mb-2 text-xl font-bold">
-                Evaluación de Salud Mental
-              </h3>
-              <p>
-                Analiza tu estado de ánimo y recibe sugerencias de recursos
-                apropiados para ti.
-              </p>
+            <h2 className="font-headline text-5xl text-primary mb-4">
+              Objetivos y Visión a Futuro
+            </h2>
+            <p className="max-w-4xl mx-auto text-muted-foreground mb-12">
+              Brindar soluciones reales e integrales de alta calidad tanto en la prevención de las adicciones como en su intervención terapéutica, consolidándonos como líderes innovadores en rehabilitación y salud mental a nivel nacional.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <Card className="bg-card/50 backdrop-blur-sm border-border hover:border-primary transition-all duration-300">
+                    <CardHeader>
+                        <Target className="h-10 w-10 text-primary mb-2"/>
+                        <CardTitle className="font-headline text-2xl">Atención Integral</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="text-muted-foreground">Garantizar una atención clínica, psicológica y social que cumpla con las normativas de salud pública, reconociendo la adicción como una enfermedad.</p>
+                    </CardContent>
+                </Card>
+                 <Card className="bg-card/50 backdrop-blur-sm border-border hover:border-primary transition-all duration-300">
+                    <CardHeader>
+                        <Bot className="h-10 w-10 text-primary mb-2"/>
+                        <CardTitle className="font-headline text-2xl">Innovación Tecnológica</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="text-muted-foreground">Incorporar herramientas como IA, plataformas virtuales y neurotecnologías para una atención más personalizada, oportuna y preventiva.</p>
+                    </CardContent>
+                </Card>
+                 <Card className="bg-card/50 backdrop-blur-sm border-border hover:border-primary transition-all duration-300">
+                    <CardHeader>
+                        <Users className="h-10 w-10 text-primary mb-2"/>
+                        <CardTitle className="font-headline text-2xl">Liderazgo y Expansión</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="text-muted-foreground">Ampliar nuestro alcance e impacto, manteniéndonos a la vanguardia en tratamientos y formando continuamente a nuestro equipo interdisciplinario.</p>
+                    </CardContent>
+                </Card>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <Bot className="h-8 w-8" />
-              </div>
-              <h3 className="mb-2 text-xl font-bold">
-                Plataforma de Bienestar
-              </h3>
-              <p>
-                Recomendaciones personalizadas de telemedicina, nutrición y
-                ejercicio.
-              </p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <ShieldCheck className="h-8 w-8" />
-              </div>
-              <h3 className="mb-2 text-xl font-bold">
-                Reducción de Riesgo
-              </h3>
-              <p>
-                Guía y recursos sobre el uso de sustancias para individuos y
-                familias.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Social Impact Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-center font-headline text-4xl font-bold text-foreground">
-            Historias que inspiran
-          </h2>
-          <Carousel
-            opts={{
-              align: 'start',
-              loop: true,
-            }}
-            className="mx-auto w-full max-w-4xl"
-          >
-            <CarouselContent>
-              {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index} className="md:basis-1/2">
-                  <div className="p-1">
-                    <Card>
-                      <CardContent className="flex flex-col items-center justify-center p-6 text-center">
-                        <Image
-                          src={testimonial.avatarUrl}
-                          alt={`Avatar of ${testimonial.name}`}
-                          width={80}
-                          height={80}
-                          className="mb-4 rounded-full"
-                          data-ai-hint="person face"
-                        />
-                        <p className="mb-4 font-body italic text-foreground">
-                          &ldquo;{testimonial.quote}&rdquo;
-                        </p>
-                        <p className="font-bold">{testimonial.name}</p>
-                        <p className="text-sm text-muted-foreground">
-                          {testimonial.role}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+            <div className="text-center mb-12">
+                 <h2 className="font-headline text-5xl text-primary mb-4">
+                  Impacto Social y Poblaciones Objetivo
+                </h2>
+                <p className="max-w-4xl mx-auto text-muted-foreground">
+                    Abordamos la adicción desde un enfoque de salud pública, derechos humanos y reintegración comunitaria, con programas específicos para menores, mujeres, hombres y pacientes con doble diagnóstico.
+                </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="flex flex-col items-center text-center">
+                    <div className="relative w-24 h-24 mb-4">
+                        <div className="absolute inset-0 bg-primary rounded-full opacity-10"></div>
+                        <div className="absolute inset-2 bg-primary rounded-full opacity-20"></div>
+                        <div className="absolute inset-4 bg-primary rounded-full flex items-center justify-center">
+                            <HeartHandshake className="w-10 h-10 text-primary-foreground"/>
+                        </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">Inclusión Familiar</h3>
+                    <p className="text-muted-foreground text-sm">Capacitamos y asesoramos a las familias para que se conviertan en un sostén activo en la recuperación.</p>
+                </div>
+                 <div className="flex flex-col items-center text-center">
+                    <div className="relative w-24 h-24 mb-4">
+                        <div className="absolute inset-0 bg-primary rounded-full opacity-10"></div>
+                        <div className="absolute inset-2 bg-primary rounded-full opacity-20"></div>
+                        <div className="absolute inset-4 bg-primary rounded-full flex items-center justify-center">
+                            <ShieldCheck className="w-10 h-10 text-primary-foreground"/>
+                        </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">Reducción del Estigma</h3>
+                    <p className="text-muted-foreground text-sm">Contribuimos a cambiar la percepción de la adicción, fomentando la compasión y la búsqueda de ayuda.</p>
+                </div>
+                 <div className="flex flex-col items-center text-center">
+                    <div className="relative w-24 h-24 mb-4">
+                        <div className="absolute inset-0 bg-primary rounded-full opacity-10"></div>
+                        <div className="absolute inset-2 bg-primary rounded-full opacity-20"></div>
+                        <div className="absolute inset-4 bg-primary rounded-full flex items-center justify-center">
+                            <Users className="w-10 h-10 text-primary-foreground"/>
+                        </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">Reintegración Social</h3>
+                    <p className="text-muted-foreground text-sm">Apoyamos a los pacientes a retomar sus estudios, empleos y a establecer redes de apoyo positivas.</p>
+                </div>
+                 <div className="flex flex-col items-center text-center">
+                    <div className="relative w-24 h-24 mb-4">
+                        <div className="absolute inset-0 bg-primary rounded-full opacity-10"></div>
+                        <div className="absolute inset-2 bg-primary rounded-full opacity-20"></div>
+                        <div className="absolute inset-4 bg-primary rounded-full flex items-center justify-center">
+                            <Building className="w-10 h-10 text-primary-foreground"/>
+                        </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">Plan Padrino</h3>
+                    <p className="text-muted-foreground text-sm">Invitamos a la comunidad a apadrinar tratamientos, convirtiéndose en faros de esperanza para quienes lo necesitan.</p>
+                </div>
+            </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-secondary py-20 text-center">
+      <section className="bg-primary py-20 text-center">
         <div className="container mx-auto px-4">
-          <h2 className="font-headline text-4xl font-bold text-secondary-foreground">
+          <h2 className="font-headline text-5xl font-bold text-primary-foreground">
             ¿Listo para dar el primer paso?
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-secondary-foreground">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/80">
             Tu camino hacia el bienestar comienza aquí. Contacta con nuestros
             especialistas o explora nuestras herramientas de IA hoy mismo.
           </p>
-          <Button asChild size="lg" className="mt-8">
+          <Button asChild size="lg" variant="secondary" className="mt-8 rounded-full bg-primary-foreground text-primary hover:bg-primary-foreground/90">
             <Link href="/contact">Contactar Ahora</Link>
           </Button>
         </div>

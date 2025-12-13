@@ -5,9 +5,9 @@ import { Footer } from '@/components/layout/footer';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'LuzIA - Mental Health and Wellness',
+  title: 'Fundación La Luz - Restaurando Vidas, Construyendo Futuros',
   description:
-    'AI-Powered tools for mental health assessment, wellness, and substance use risk reduction.',
+    'Más de 27 años de trayectoria en la rehabilitación de adicciones y el cuidado de la salud mental en Colombia. Ofrecemos un modelo de atención integral, científico y humanizado.',
 };
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" className="dark" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -25,11 +25,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=PT+Sans:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="font-body antialiased">
+      <body className="font-body antialiased bg-background text-foreground">
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-grow">{children}</main>

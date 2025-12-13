@@ -28,21 +28,21 @@ export const testimonials: Testimonial[] = [
 
 export const locations: Location[] = [
   {
-    name: 'Sede Principal - Bogotá',
-    address: 'Calle Falsa 123, Chapinero, Bogotá, Colombia',
-    phone: '(+57) 601 234 5678',
+    name: 'Sede Bogotá',
+    address: 'Calle 80 #116B-35, Barrio Alhambra, Bogotá',
+    phone: '300 829 4982 / 311 636 8893',
     hours: 'Lunes a Viernes: 8:00 AM - 6:00 PM',
   },
   {
-    name: 'Centro de Apoyo - Medellín',
-    address: 'Avenida Siempre Viva 742, El Poblado, Medellín, Colombia',
-    phone: '(+57) 604 876 5432',
-    hours: 'Lunes a Viernes: 9:00 AM - 5:00 PM',
+    name: 'Sede Antioquia',
+    address: 'Vereda la Clara, Caldas, Antioquia',
+    phone: '304 448 5555 / 304 448 5556',
+    hours: 'Lunes a Viernes: 8:00 AM - 5:00 PM',
   },
   {
-    name: 'Unidad de Bienestar - Cali',
-    address: 'Carrera 100 #5-169, Ciudad Jardín, Cali, Colombia',
-    phone: '(+57) 602 345 6789',
-    hours: 'Martes a Sábado: 10:00 AM - 7:00 PM',
+    name: 'Sede Chinauta (Cundinamarca)',
+    address: 'Km 68 Vía Melgar, Chinauta, Cundinamarca',
+    phone: '302 218 4853 / 316 772 2262',
+    hours: 'Lunes a Viernes: 8:00 AM - 5:00 PM',
   },
 ];

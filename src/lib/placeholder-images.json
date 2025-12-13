@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero",
-      "description": "A calming image of a person looking out at a peaceful landscape at sunrise.",
-      "imageUrl": "https://images.unsplash.com/photo-1649904597889-79ef68a3feb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGVhY2VmdWwlMjBzdW5yaXNlfGVufDB8fHx8MTc2NTYzNzc0MHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "peaceful sunrise"
+      "description": "A dark, abstract image with glowing lines representing technology and hope.",
+      "imageUrl": "https://images.unsplash.com/photo-1534723452862-4c874018d66d?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "abstract technology"
     },
     {
       "id": "family-persona",
@@ -26,20 +26,20 @@
     },
     {
       "id": "services-header",
-      "description": "An abstract image representing connection and services.",
-      "imageUrl": "https://images.unsplash.com/photo-1738082956257-06cde4444b1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGNvbm5lY3Rpb258ZW58MHx8fHwxNzY1NjM2MTQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "abstract connection"
+      "description": "An abstract image representing neural networks and technology.",
+      "imageUrl": "https://images.unsplash.com/photo-1554493393-27299a3a9924?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "abstract neural"
     },
     {
       "id": "contact-header",
-      "description": "A close-up of an old-fashioned telephone.",
-      "imageUrl": "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx2aW50YWdlJTIwdGVsZXBob25lfGVufDB8fHx8MTc2NTYzNzc0MHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "vintage telephone"
+      "description": "Abstract image of light streaks representing communication.",
+      "imageUrl": "https://images.unsplash.com/photo-1535924294008-cb3663673dd3?q=80&w=1974&auto=format&fit=crop",
+      "imageHint": "abstract communication"
     },
     {
       "id": "financials-header",
-      "description": "A desk with financial charts and a calculator.",
-      "imageUrl": "https://images.unsplash.com/photo-1745509267699-1b1db256601e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBjaGFydHN8ZW58MHx8fHwxNzY1NTU2Mjg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "A modern desk with financial charts on a screen.",
+      "imageUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop",
       "imageHint": "financial charts"
     },
     {
