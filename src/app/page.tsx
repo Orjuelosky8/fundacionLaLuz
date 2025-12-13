@@ -39,7 +39,7 @@ const personas = [
   {
     id: 'ally-persona',
     title: 'Soy Aliado o Empresa',
-    description: 'Conoce cómo podemos colaborar para ampliar el alcance de nuestros tratamientos y programas de prevención.',
+    description: 'Conoce cómo podemos colaborar para ampliar el alcance de nuestros programas y programas de prevención.',
     icon: Stethoscope,
     href: '/contact',
     backContent: 'Colabora con nosotros a través de alianzas corporativas, programas de voluntariado o el Plan Padrino. Juntos, podemos amplificar el impacto y construir futuros llenos de esperanza para más personas.'
@@ -90,7 +90,7 @@ export default function Home() {
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/70 to-background" />
         
-        <div className="relative z-10 flex flex-col items-center">
+        <div className="relative z-10 flex flex-col items-center animate-in fade-in slide-in-from-top-12 duration-1000">
             <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-foreground">
               LuzIA
             </h1>
@@ -112,7 +112,7 @@ export default function Home() {
       </section>
 
       {/* Personas Section */}
-      <section className="py-16 md:py-24 container mx-auto">
+      <section className="py-16 md:py-24 container mx-auto animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="font-headline text-4xl md:text-5xl text-primary mb-4">
             Un Camino para Cada Necesidad
@@ -172,7 +172,7 @@ export default function Home() {
 
        {/* AI Features Section */}
       <section className="bg-muted/30 py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 animate-in fade-in slide-in-from-bottom-12 duration-1000">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="font-headline text-4xl md:text-5xl text-primary mb-4">
               Innovación y Tecnología a tu Servicio
@@ -220,8 +220,8 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-24 space-y-16">
-          <div className="text-center max-w-3xl mx-auto">
+      <section className="py-16 md:py-24 space-y-16 overflow-hidden">
+          <div className="text-center max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-12 duration-1000">
             <h2 className="font-headline text-4xl md:text-5xl text-primary mb-4">
               Historias que Inspiran
             </h2>
@@ -234,7 +234,7 @@ export default function Home() {
       
       {/* CTA Section */}
       <section className="bg-primary text-primary-foreground py-20 text-center">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 animate-in fade-in duration-1000">
           <h2 className="font-headline text-4xl md:text-5xl font-bold">
             ¿Listo para dar el primer paso?
           </h2>
