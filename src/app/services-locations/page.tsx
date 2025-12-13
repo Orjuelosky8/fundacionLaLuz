@@ -3,6 +3,7 @@ import { BrainCircuit, Bot, ShieldCheck, MapPin, Phone, Clock } from 'lucide-rea
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { locations } from '@/lib/data';
+import { Button } from '@/components/ui/button';
 
 const servicesImage = PlaceHolderImages.find((img) => img.id === 'services-header');
 
