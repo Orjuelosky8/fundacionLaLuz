@@ -3,6 +3,7 @@ import { Playfair_Display, PT_Sans } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { FloatingContactButton } from '@/components/layout/FloatingContactButton';
 import { cn } from '@/lib/utils';
 import './globals.css';
 
@@ -41,6 +42,7 @@ export default function RootLayout({
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>
+        <FloatingContactButton />
         <Toaster />
       </body>
     </html>
