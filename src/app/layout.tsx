@@ -9,7 +9,7 @@ import { Footer } from '@/components/layout/footer';
 import { FloatingContactButton } from '@/components/layout/FloatingContactButton';
 import { cn } from '@/lib/utils';
 import './globals.css';
-import { ChatbotModalProvider } from '@/hooks/use-chatbot-modal';
+import { useChatbotModal } from '@/hooks/use-chatbot-modal';
 import ChatbotModal from '@/components/chatbot/ChatbotModal';
 
 const playfair = Playfair_Display({
@@ -52,16 +52,14 @@ export default function RootLayout({
           ptSans.variable
         )}
       >
-        <ChatbotModalProvider>
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
-          <FloatingContactButton />
-          <ChatbotModal />
-          <Toaster />
-        </ChatbotModalProvider>
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </div>
+        <FloatingContactButton />
+        <ChatbotModal />
+        <Toaster />
       </body>
     </html>
   );

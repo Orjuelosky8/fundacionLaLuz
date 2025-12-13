@@ -17,7 +17,3 @@ export const useChatbotModal = create<ChatbotModalState>((set) => ({
   openModal: (topic) => set({ isOpen: true, topic }),
   closeModal: () => set({ isOpen: false }),
 }));
-
-export function ChatbotModalProvider({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
-}
