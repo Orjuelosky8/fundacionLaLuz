@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, ChevronDown, X } from 'lucide-react';
+import { Menu, ChevronDown, X, BrainCircuit, Bot, ShieldCheck } from 'lucide-react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { useState } from 'react';
 
@@ -25,11 +25,20 @@ const navLinks = [
       {
         href: '/mental-health-assessment',
         label: 'Evaluación de Salud Mental',
+        icon: Bot,
+        description: 'Analiza tu estado de ánimo y estrés.'
       },
-      { href: '/wellness-recommendations', label: 'Planes de Bienestar' },
+      { 
+        href: '/wellness-recommendations', 
+        label: 'Planes de Bienestar',
+        icon: BrainCircuit,
+        description: 'Recomendaciones personalizadas.'
+      },
       {
         href: '/substance-use-risk',
         label: 'Reducción de Riesgo',
+        icon: ShieldCheck,
+        description: 'Guía sobre uso de sustancias.'
       },
     ],
   },
@@ -46,8 +55,8 @@ export function Header() {
       <div className="container flex h-20 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Logo className="h-8 w-8 text-primary" />
-          <span className="font-bold sm:inline-block font-headline text-2xl text-primary-foreground tracking-wider uppercase">
-            Fundación La Luz
+          <span className="font-bold sm:inline-block font-headline text-2xl text-foreground tracking-wider uppercase">
+            LuzIA
           </span>
         </Link>
         <nav className="hidden gap-6 md:flex flex-1 justify-center items-center">
@@ -68,7 +77,7 @@ export function Header() {
                 </DropdownMenu.Trigger>
                 <DropdownMenu.Portal>
                   <DropdownMenu.Content 
-                    className="w-56 bg-secondary border-border/50 rounded-lg shadow-lg"
+                    className="w-64 bg-background border-border/50 rounded-lg shadow-lg p-2"
                     sideOffset={15}
                   >
                     {link.subLinks.map((subLink) => (
@@ -76,12 +85,16 @@ export function Header() {
                         <Link
                           href={subLink.href}
                           className={cn(
-                            'block px-4 py-2 text-sm text-muted-foreground hover:bg-primary/10 hover:text-primary rounded-md',
+                            'flex gap-3 items-center w-full p-3 text-sm text-foreground rounded-md transition-colors hover:bg-accent/50 hover:text-accent-foreground focus:bg-accent/50 focus:text-accent-foreground focus:outline-none',
                             pathname === subLink.href &&
-                              'text-primary bg-primary/10'
+                              'bg-accent/80 text-accent-foreground'
                           )}
                         >
-                          {subLink.label}
+                          <subLink.icon className="h-5 w-5 text-primary"/>
+                          <div>
+                            <p className="font-semibold">{subLink.label}</p>
+                            <p className="text-xs text-muted-foreground">{subLink.description}</p>
+                          </div>
                         </Link>
                       </DropdownMenu.Item>
                     ))}
@@ -103,7 +116,7 @@ export function Header() {
           )}
         </nav>
         <div className="hidden md:flex items-center justify-end">
-          <Button asChild className="rounded-full">
+          <Button asChild>
             <Link href="/contact">Donar</Link>
           </Button>
         </div>
@@ -120,7 +133,7 @@ export function Header() {
                 <div className="flex items-center justify-between p-4 border-b border-border/50">
                    <Link href="/" className="flex items-center space-x-2" onClick={() => setMobileMenuOpen(false)}>
                     <Logo className="h-6 w-6 text-primary" />
-                    <span className="font-bold font-headline text-lg text-primary-foreground">Fundación La Luz</span>
+                    <span className="font-bold font-headline text-lg text-foreground">LuzIA</span>
                   </Link>
                   <SheetClose asChild>
                     <Button variant="ghost" size="icon">
@@ -163,7 +176,7 @@ export function Header() {
                   ))}
                 </div>
                  <div className="p-4 mt-auto border-t border-border/50">
-                    <Button asChild className="w-full rounded-full">
+                    <Button asChild className="w-full">
                       <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Donar</Link>
                     </Button>
                 </div>

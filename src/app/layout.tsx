@@ -1,13 +1,27 @@
 import type { Metadata } from 'next';
+import { Playfair_Display, PT_Sans } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { cn } from '@/lib/utils';
 import './globals.css';
 
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  weight: ['400', '700'],
+});
+
+const ptSans = PT_Sans({
+  subsets: ['latin'],
+  variable: '--font-pt-sans',
+  weight: ['400', '700'],
+});
+
 export const metadata: Metadata = {
-  title: 'Fundación La Luz - Restaurando Vidas, Construyendo Futuros',
+  title: 'LuzIA - Fundación La Luz',
   description:
-    'Más de 27 años de trayectoria en la rehabilitación de adicciones y el cuidado de la salud mental en Colombia. Ofrecemos un modelo de atención integral, científico y humanizado.',
+    'Plataforma de inteligencia artificial de la Fundación La Luz para el apoyo en salud mental y la rehabilitación de adicciones.',
 };
 
 export default function RootLayout({
@@ -17,19 +31,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="font-body antialiased bg-background text-foreground">
+      <body className={cn(
+        "font-body antialiased bg-background text-foreground",
+        playfair.variable,
+        ptSans.variable
+      )}>
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-grow">{children}</main>
