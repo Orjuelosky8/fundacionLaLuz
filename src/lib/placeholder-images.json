@@ -1,3 +1,64 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "A calming image of a person looking out at a peaceful landscape at sunrise.",
+      "imageUrl": "https://images.unsplash.com/photo-1649904597889-79ef68a3feb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGVhY2VmdWwlMjBzdW5yaXNlfGVufDB8fHx8MTc2NTYzNzc0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "peaceful sunrise"
+    },
+    {
+      "id": "family-persona",
+      "description": "A supportive family together, sharing a happy moment.",
+      "imageUrl": "https://images.unsplash.com/photo-1763631045896-04d2e60048ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdXBwb3J0aXZlJTIwZmFtaWx5fGVufDB8fHx8MTc2NTYzNzc0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "supportive family"
+    },
+    {
+      "id": "treatment-persona",
+      "description": "A person meditating peacefully outdoors.",
+      "imageUrl": "https://images.unsplash.com/photo-1574783797574-e7fc2348caf8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwZXJzb24lMjBtZWRpdGF0aW5nfGVufDB8fHx8MTc2NTYzNTUyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person meditating"
+    },
+    {
+      "id": "ally-persona",
+      "description": "Two professionals shaking hands in an office setting.",
+      "imageUrl": "https://images.unsplash.com/photo-1758599543152-a73184816eba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWxzJTIwaGFuZHNoYWtlfGVufDB8fHx8MTc2NTU5ODg4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professionals handshake"
+    },
+    {
+      "id": "services-header",
+      "description": "An abstract image representing connection and services.",
+      "imageUrl": "https://images.unsplash.com/photo-1738082956257-06cde4444b1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGNvbm5lY3Rpb258ZW58MHx8fHwxNzY1NjM2MTQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract connection"
+    },
+    {
+      "id": "contact-header",
+      "description": "A close-up of an old-fashioned telephone.",
+      "imageUrl": "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx2aW50YWdlJTIwdGVsZXBob25lfGVufDB8fHx8MTc2NTYzNzc0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vintage telephone"
+    },
+    {
+      "id": "financials-header",
+      "description": "A desk with financial charts and a calculator.",
+      "imageUrl": "https://images.unsplash.com/photo-1745509267699-1b1db256601e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBjaGFydHN8ZW58MHx8fHwxNzY1NTU2Mjg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "financial charts"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Portrait of a smiling person.",
+      "imageUrl": "https://images.unsplash.com/photo-1521146764736-56c929d59c83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwZXJzb24lMjBmYWNlfGVufDB8fHx8MTc2NTYyNjMwMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person face"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Portrait of another smiling person.",
+      "imageUrl": "https://images.unsplash.com/photo-1530268729831-4b0b9e170218?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwZXJzb24lMjBmYWNlfGVufDB8fHx8MTc2NTYyNjMwMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person face"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Portrait of a third smiling person.",
+      "imageUrl": "https://images.unsplash.com/photo-1710974481447-fb001ad9ad5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwZXJzb24lMjBmYWNlfGVufDB8fHx8MTc2NTYyNjMwMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person face"
+    }
+  ]
 }
