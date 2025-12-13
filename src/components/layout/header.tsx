@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu } from 'lucide-react';
+import { Menu, ChevronDown } from 'lucide-react';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -50,32 +51,36 @@ export function Header() {
         <nav className="hidden gap-6 md:flex">
           {navLinks.map((link) =>
             link.subLinks ? (
-              <div key={link.label} className="relative group">
-                <span
-                  className={cn(
-                    'flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground cursor-pointer',
-                    link.subLinks.some((sl) => pathname === sl.href) &&
-                      'text-foreground'
-                  )}
-                >
-                  {link.label}
-                </span>
-                <div className="absolute left-0 top-full mt-2 w-48 rounded-md shadow-lg bg-background border opacity-0 group-hover:opacity-100 transition-opacity invisible group-hover:visible">
+              <DropdownMenu.Root key={link.label}>
+                <DropdownMenu.Trigger asChild>
+                  <button
+                    className={cn(
+                      'flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus:outline-none',
+                      link.subLinks.some((sl) => pathname === sl.href) &&
+                        'text-foreground'
+                    )}
+                  >
+                    {link.label}
+                    <ChevronDown className="h-4 w-4" />
+                  </button>
+                </DropdownMenu.Trigger>
+                <DropdownMenu.Content className="w-48 bg-background border rounded-md shadow-lg">
                   {link.subLinks.map((subLink) => (
-                    <Link
-                      key={subLink.href}
-                      href={subLink.href}
-                      className={cn(
-                        'block px-4 py-2 text-sm text-muted-foreground hover:bg-muted',
-                        pathname === subLink.href &&
-                          'text-foreground bg-muted'
-                      )}
-                    >
-                      {subLink.label}
-                    </Link>
+                    <DropdownMenu.Item key={subLink.href} asChild>
+                      <Link
+                        href={subLink.href}
+                        className={cn(
+                          'block px-4 py-2 text-sm text-muted-foreground hover:bg-muted',
+                          pathname === subLink.href &&
+                            'text-foreground bg-muted'
+                        )}
+                      >
+                        {subLink.label}
+                      </Link>
+                    </DropdownMenu.Item>
                   ))}
-                </div>
-              </div>
+                </DropdownMenu.Content>
+              </DropdownMenu.Root>
             ) : (
               <Link
                 key={link.href}
