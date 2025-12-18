@@ -1,3 +1,4 @@
+
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -142,7 +143,7 @@ const DesktopBubbleCarousel = () => {
                             variant="outline"
                             className="rounded-full border-primary/50 text-primary bg-background hover:bg-primary/10 hover:text-primary transition-colors duration-300 z-10 group-hover:bg-luz-yellow"
                         >
-                            <Link href={bubble.href || '#'} onClick={(e) => handleBubbleClick(e, bubble.action)}>{bubble.label}</Link>
+                             <Link href={bubble.href || '#'} onClick={(e) => handleBubbleClick(e, bubble.action)}>{bubble.label}</Link>
                         </Button>
                          <Smile className="absolute top-full mt-2 h-6 w-6 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
@@ -160,16 +161,14 @@ export default function Home() {
     <div className="flex flex-col bg-background text-foreground">
       {/* Hero Section - Desktop */}
       <section className="hidden md:block relative w-full h-[calc(100vh-88px)] min-h-[500px] items-center justify-center text-white overflow-hidden">
-        {heroImage && (
-          <Image
-            src="https://images.unsplash.com/photo-1506126613408-4e05210985c7?q=80&w=2070&auto=format&fit=crop"
-            alt="Persona meditando en un muelle"
-            data-ai-hint="person meditating"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-        )}
+        <video
+          src="/inicio/CascadaPortada.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 container mx-auto grid grid-cols-2 items-center h-full">
             <div className="col-span-1">
@@ -180,24 +179,28 @@ export default function Home() {
                     </h1>
                 </div>
             </div>
-            <div className="col-span-1 flex justify-end">
-                 {/* Container for the future PNG */}
+            <div className="col-span-1 flex justify-end h-full relative">
+                 <Image 
+                    src="/inicio/SiluetaPersonaPortada.png"
+                    alt="Silueta de una persona"
+                    width={450}
+                    height={600}
+                    className="object-contain h-full w-auto"
+                  />
             </div>
         </div>
       </section>
 
       {/* Hero Section - Mobile */}
       <section className="md:hidden relative w-full h-[70vh] min-h-[450px] flex flex-col justify-center text-white overflow-hidden">
-        {heroImage && (
-          <Image
-            src="https://images.unsplash.com/photo-1506126613408-4e05210985c7?q=80&w=2070&auto=format&fit=crop"
-            alt="Persona meditando en un muelle"
-            data-ai-hint="person meditating"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-        )}
+        <video
+          src="/inicio/CascadaPortada.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 text-center animate-in fade-in slide-in-from-bottom-12 duration-1000">
             <p className="text-md md:text-lg">Bienvenido a tu espacio seguro</p>
@@ -359,3 +362,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
