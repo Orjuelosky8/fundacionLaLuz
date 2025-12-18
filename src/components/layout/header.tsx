@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -21,6 +22,8 @@ import {
   SheetContent,
   SheetTrigger,
   SheetClose,
+  SheetHeader,
+  SheetTitle,
 } from '@/components/ui/sheet';
 import { Logo } from '@/components/icons';
 import { useChatbotModal } from '@/hooks/use-chatbot-modal';
@@ -167,8 +170,9 @@ export function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="bg-background w-full p-0">
-                <div className="flex flex-col h-full">
-                  <div className="flex items-center justify-between p-4 border-b border-border/50">
+                <SheetHeader className="p-4 border-b border-border/50">
+                  <SheetTitle className="sr-only">Menú de Navegación</SheetTitle>
+                  <div className="flex items-center justify-between">
                     <Link
                       href="/"
                       className="flex items-center space-x-2"
@@ -188,6 +192,8 @@ export function Header() {
                       </Button>
                     </SheetClose>
                   </div>
+                </SheetHeader>
+                <div className="flex flex-col h-full">
                   <div className="flex flex-col space-y-2 p-4">
                       {navLinks.map((link) => (
                           <div key={link.label}>
@@ -258,3 +264,5 @@ export function Header() {
     </header>
   );
 }
+
+    
