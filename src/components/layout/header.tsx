@@ -9,6 +9,7 @@ import {
   BrainCircuit,
   Bot,
   ShieldCheck,
+  HeartHandshake,
 } from 'lucide-react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { useState } from 'react';
@@ -156,78 +157,102 @@ export function Header() {
   return (
     <header className="absolute top-0 z-50 w-full">
       <div className="container flex h-24 items-center">
-        <Link href="/" className="mr-6 flex items-center space-x-2">
-          <Image
-            src="/logoFundacionLaLuz.png"
-            alt="Logo Fundacion la Luz"
-            width={120}
-            height={48}
-            priority
-            className="invert"
-          />
-        </Link>
-        <nav className="hidden gap-6 md:flex flex-1 justify-end items-center text-primary-foreground">
-          {navLinks.map((link) => (
-            <div key={link.label}>{renderLink(link)}</div>
-          ))}
-          <Button asChild variant="secondary">
-            <Link href="/contact">Donar</Link>
-          </Button>
-        </nav>
-        <div className="flex flex-1 items-center justify-end md:hidden">
-          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-primary-foreground hover:text-primary-foreground hover:bg-white/10">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle Menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="bg-background w-full p-0">
-              <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between p-4 border-b border-border/50">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <Image
-                      src="/logoFundacionLaLuz.png"
-                      alt="Logo Fundacion la Luz"
-                      width={100}
-                      height={40}
-                      priority
-                    />
-                  </Link>
-                  <SheetClose asChild>
-                    <Button variant="ghost" size="icon">
-                      <X className="h-6 w-6" />
-                    </Button>
-                  </SheetClose>
-                </div>
-                <div className="flex flex-col space-y-2 p-4">
-                    {navLinks.map((link) => (
-                        <div key={link.label}>
-                            {link.subLinks ? renderLink(link, true) : (
-                                <SheetClose asChild>
-                                    {renderLink(link, true)}
-                                </SheetClose>
-                            )}
-                        </div>
-                    ))}
-                </div>
-                <div className="p-4 mt-auto border-t border-border/50">
-                  <Button asChild className="w-full">
+        {/* Mobile Header */}
+        <div className="flex w-full items-center justify-between md:hidden text-primary-foreground">
+            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="hover:text-primary-foreground hover:bg-white/10">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Toggle Menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="bg-background w-full p-0">
+                <div className="flex flex-col h-full">
+                  <div className="flex items-center justify-between p-4 border-b border-border/50">
                     <Link
-                      href="/contact"
+                      href="/"
+                      className="flex items-center space-x-2"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Donar
+                      <Image
+                        src="/logoFundacionLaLuz.png"
+                        alt="Logo Fundacion la Luz"
+                        width={100}
+                        height={40}
+                        priority
+                      />
                     </Link>
-                  </Button>
+                    <SheetClose asChild>
+                      <Button variant="ghost" size="icon">
+                        <X className="h-6 w-6" />
+                      </Button>
+                    </SheetClose>
+                  </div>
+                  <div className="flex flex-col space-y-2 p-4">
+                      {navLinks.map((link) => (
+                          <div key={link.label}>
+                              {link.subLinks ? renderLink(link, true) : (
+                                  <SheetClose asChild>
+                                      {renderLink(link, true)}
+                                  </SheetClose>
+                              )}
+                          </div>
+                      ))}
+                  </div>
+                  <div className="p-4 mt-auto border-t border-border/50">
+                    <Button asChild className="w-full">
+                      <Link
+                        href="/contact"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        Donar
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+
+            <Link href="/" className="shrink-0">
+              <Image
+                src="/logoFundacionLaLuz.png"
+                alt="Logo Fundacion la Luz"
+                width={100}
+                height={40}
+                priority
+                className="invert"
+              />
+            </Link>
+
+            <Button asChild variant="ghost" size="icon" className="hover:text-primary-foreground hover:bg-white/10">
+                <Link href="/contact">
+                    <HeartHandshake className="h-6 w-6" />
+                    <span className="sr-only">Donar</span>
+                </Link>
+            </Button>
+        </div>
+
+
+        {/* Desktop Header */}
+        <div className="hidden md:flex w-full items-center">
+            <Link href="/" className="mr-6 flex items-center space-x-2">
+            <Image
+                src="/logoFundacionLaLuz.png"
+                alt="Logo Fundacion la Luz"
+                width={120}
+                height={48}
+                priority
+                className="invert"
+            />
+            </Link>
+            <nav className="hidden gap-6 md:flex flex-1 justify-end items-center text-primary-foreground">
+            {navLinks.map((link) => (
+                <div key={link.label}>{renderLink(link)}</div>
+            ))}
+            <Button asChild variant="secondary">
+                <Link href="/contact">Donar</Link>
+            </Button>
+            </nav>
         </div>
       </div>
     </header>

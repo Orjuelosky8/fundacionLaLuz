@@ -64,6 +64,12 @@ const aiBubbles = [
     }
 ]
 
+const mobileBubbles = [
+    { label: "Ansiedad", href: "#", action: "mental-health" },
+    { label: "Estrés", href: "#", action: "mental-health" },
+    { label: "Apoyo Familiar", href: "/contact" },
+];
+
 const InfiniteTestimonials = () => {
     return (
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
@@ -109,26 +115,49 @@ export default function Home() {
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.1),_transparent_40%)]"></div>
           
           <div className="container relative z-10 text-center animate-in fade-in slide-in-from-top-12 duration-1000">
-            <LuziaIcon className="w-24 h-24 text-luz-yellow mx-auto mb-4" />
-
-            <p className="font-semibold text-lg text-primary-foreground/80 tracking-wider">BIENVENIDO A LUZIA</p>
-            <h1 className="font-headline text-5xl md:text-7xl font-bold">
-              Tu Aliado Inteligente
-            </h1>
-            <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-primary-foreground/90">
-             Apoyo accesible, confidencial y basado en tecnología para tu bienestar.
-            </p>
-            
-            <div className="mt-12">
-                <p className="mb-4 font-semibold text-primary-foreground/80">Explora nuestras herramientas:</p>
-                <div className="flex flex-wrap items-center justify-center gap-4">
-                   {aiBubbles.map(bubble => (
-                       <Button key={bubble.label} asChild size="lg" variant="secondary" className="rounded-full bg-white/90 text-primary hover:bg-white">
-                           <Link href={bubble.href} onClick={(e) => handleBubbleClick(e, bubble.action)}>{bubble.label}</Link>
-                       </Button>
-                   ))}
+            {/* Desktop Hero */}
+            <div className="hidden md:block">
+                <LuziaIcon className="w-24 h-24 text-luz-yellow mx-auto mb-4" />
+                <p className="font-semibold text-lg text-primary-foreground/80 tracking-wider">BIENVENIDO A LUZIA</p>
+                <h1 className="font-headline text-5xl md:text-7xl font-bold">
+                Tu Aliado Inteligente
+                </h1>
+                <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-primary-foreground/90">
+                Apoyo accesible, confidencial y basado en tecnología para tu bienestar.
+                </p>
+                
+                <div className="mt-12">
+                    <p className="mb-4 font-semibold text-primary-foreground/80">Explora nuestras herramientas:</p>
+                    <div className="flex flex-wrap items-center justify-center gap-4">
+                    {aiBubbles.map(bubble => (
+                        <Button key={bubble.label} asChild size="lg" variant="secondary" className="rounded-full bg-white/90 text-primary hover:bg-white">
+                            <Link href={bubble.href} onClick={(e) => handleBubbleClick(e, bubble.action)}>{bubble.label}</Link>
+                        </Button>
+                    ))}
+                    </div>
                 </div>
             </div>
+
+            {/* Mobile Hero */}
+            <div className="md:hidden">
+                <h1 className="font-headline text-4xl font-bold">
+                    Aquí para escucharte.
+                </h1>
+                <p className="mt-4 max-w-2xl mx-auto text-lg text-primary-foreground/90">
+                    Un espacio seguro para encontrar calma y apoyo. No estás solo.
+                </p>
+                
+                <div className="mt-8">
+                    <div className="flex flex-wrap items-center justify-center gap-3">
+                        {mobileBubbles.map(bubble => (
+                        <Button key={bubble.label} asChild variant="secondary" className="rounded-full bg-white/90 text-primary hover:bg-white">
+                            <Link href={bubble.href} onClick={(e) => handleBubbleClick(e, bubble.action)}>{bubble.label}</Link>
+                        </Button>
+                    ))}
+                    </div>
+                </div>
+            </div>
+
           </div>
           <div 
             className="absolute bottom-[-1px] left-0 w-full h-24 bg-background" 
