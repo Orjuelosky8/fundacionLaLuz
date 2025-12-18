@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Facebook, Instagram, Youtube } from 'lucide-react';
-import { Logo } from '@/components/icons';
 import Image from 'next/image';
 
 const footerLinks = {
@@ -25,8 +24,8 @@ export function Footer() {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-          <div className="flex flex-col col-span-2 md:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 text-center md:text-left">
+          <div className="flex flex-col items-center col-span-1 md:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Image
                               src="/logoFundacionLaLuz.png"
@@ -39,10 +38,10 @@ export function Footer() {
             <p className="text-muted-foreground text-sm max-w-md">
              Una iniciativa de la Fundación La Luz para brindar apoyo accesible, confidencial y basado en tecnología para la salud mental y la rehabilitación.
             </p>
-             <div className="flex space-x-4 mt-6">
-              <Link href="https://www.facebook.com/FundacionLaLuz" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Facebook className="h-6 w-6" /></Link>
-              <Link href="https://www.instagram.com/fundacionlaluz/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Instagram className="h-6 w-6" /></Link>
-              <Link href="https://www.youtube.com/channel/UCa7xY9j-2_jZ5y-YjZq4-wQ" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Youtube className="h-6 w-6" /></Link>
+             <div className="flex space-x-6 mt-6">
+              <Link href="https://www.facebook.com/FundacionLaLuz" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110"><Facebook className="h-6 w-6" /></Link>
+              <Link href="https://www.instagram.com/fundacionlaluz/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110"><Instagram className="h-6 w-6" /></Link>
+              <Link href="https://www.youtube.com/channel/UCa7xY9j-2_jZ5y-YjZq4-wQ" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110"><Youtube className="h-6 w-6" /></Link>
             </div>
           </div>
           {Object.entries(footerLinks).map(([title, links]) => (
