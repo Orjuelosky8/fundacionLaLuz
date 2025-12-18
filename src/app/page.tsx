@@ -112,7 +112,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative w-full overflow-hidden bg-primary pb-12 pt-32 md:pt-40 text-primary-foreground">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.1),_transparent_40%)]"></div>
-          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.1),_transparent_40%)]"></div>
+          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,254,0.1),_transparent_40%)]"></div>
           
           <div className="container relative z-10 text-center animate-in fade-in slide-in-from-top-12 duration-1000">
             {/* Desktop Hero */}
@@ -161,7 +161,7 @@ export default function Home() {
           </div>
           <div 
             className="absolute bottom-[-1px] left-0 w-full h-24 bg-background" 
-            style={{ clipPath: 'ellipse(50% 100% at 50% 100%)' }}
+            style={{ clipPath: 'ellipse(50% 100% at 50% 0%)' }}
           />
       </section>
 
