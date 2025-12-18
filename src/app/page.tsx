@@ -140,7 +140,7 @@ const DesktopBubbleCarousel = () => {
                         <Button
                             asChild
                             variant="outline"
-                            className="rounded-full border-primary/50 text-primary bg-background hover:bg-primary/10 hover:text-primary transition-colors duration-300 z-10"
+                            className="rounded-full border-primary/50 text-primary bg-background hover:bg-primary/10 hover:text-primary transition-colors duration-300 z-10 group-hover:bg-luz-yellow"
                         >
                             <Link href={bubble.href || '#'} onClick={(e) => handleBubbleClick(e, bubble.action)}>{bubble.label}</Link>
                         </Button>
@@ -159,7 +159,7 @@ export default function Home() {
   return (
     <div className="flex flex-col bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative w-full h-[70vh] md:h-[calc(100vh-200px)] min-h-[500px] flex items-center justify-center text-center text-white overflow-hidden">
+      <section className="relative w-full h-[60vh] md:h-[calc(100vh-140px)] min-h-[400px] flex items-center justify-center text-white overflow-hidden">
         {heroImage && (
           <Image
             src="https://images.unsplash.com/photo-1506126613408-4e05210985c7?q=80&w=2070&auto=format&fit=crop"
@@ -171,11 +171,18 @@ export default function Home() {
           />
         )}
         <div className="absolute inset-0 bg-black/40" />
-        <div className="relative z-10 animate-in fade-in slide-in-from-bottom-12 duration-1000">
-            <p className="text-lg md:text-xl">Bienvenido a tu espacio seguro</p>
-            <h1 className="text-4xl md:text-7xl font-bold font-headline mt-2">
-                Respira y <span className="text-luz-yellow">Comienza...</span>
-            </h1>
+        <div className="relative z-10 container mx-auto grid grid-cols-2 items-center">
+            <div className="col-span-1">
+                {/* Container for the future PNG */}
+            </div>
+            <div className="col-span-1 flex justify-end">
+                <div className="text-right animate-in fade-in slide-in-from-bottom-12 duration-1000">
+                    <p className="text-md md:text-lg">Bienvenido a tu espacio seguro</p>
+                    <h1 className="text-3xl md:text-5xl font-bold font-headline mt-2">
+                        Respira y <span className="text-luz-yellow">Comienza...</span>
+                    </h1>
+                </div>
+            </div>
         </div>
       </section>
 

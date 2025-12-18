@@ -74,21 +74,21 @@ export function Header() {
           <DropdownMenu.Trigger asChild>
             <button
               className={cn(
-                'group relative flex items-center gap-1 text-lg font-medium text-foreground transition-colors hover:text-primary focus:outline-none',
+                'group relative flex items-center gap-1 text-base font-medium text-foreground transition-colors hover:text-primary focus:outline-none',
                 isActive && 'text-primary'
               )}
             >
               {link.label}
               <ChevronDown className="h-4 w-4" />
                <span className={cn(
-                "absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300",
+                "absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300",
                 isActive ? "w-full" : "w-0 group-hover:w-full"
               )} />
             </button>
           </DropdownMenu.Trigger>
           <DropdownMenu.Portal>
             <DropdownMenu.Content
-              className="w-64 bg-background border-border/50 rounded-lg shadow-lg p-2 mt-4"
+              className="w-64 bg-background border-border/50 rounded-lg shadow-lg p-2 mt-2"
               sideOffset={15}
             >
               {link.subLinks.map((subLink: any) => (
@@ -121,13 +121,13 @@ export function Header() {
       <Link
         href={link.href!}
         className={cn(
-            'group relative text-lg font-medium text-foreground transition-colors hover:text-primary',
+            'group relative text-base font-medium text-foreground transition-colors hover:text-primary',
             isActive && 'text-primary'
         )}
       >
         {link.label}
         <span className={cn(
-            "absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300",
+            "absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300",
             isActive ? "w-full" : "w-0 group-hover:w-full"
         )} />
       </Link>
@@ -252,21 +252,21 @@ export function Header() {
       </header>
       
       {/* Desktop Header */}
-      <header className="hidden md:block sticky top-0 z-50 bg-background/80 backdrop-blur-sm shadow-sm">
-        <div className="bg-primary text-primary-foreground text-center text-sm py-1.5 px-4">
+      <header className="hidden md:block sticky top-0 z-50 bg-background/95 backdrop-blur-sm shadow-sm">
+        <div className="bg-primary text-primary-foreground text-center text-xs py-1 px-4">
           Probablemente podemos ayudarte
         </div>
-        <div className="container flex flex-col items-center py-4">
-           <Link href="/" className="my-4">
+        <div className="container flex flex-col items-center">
+           <Link href="/" className="my-2">
             <Image
                 src="/logoFundacionLaLuz.png"
                 alt="Logo Fundacion la Luz"
-                width={120}
-                height={48}
+                width={100}
+                height={40}
                 priority
             />
             </Link>
-            <nav className="flex gap-8 items-center py-2">
+            <nav className="flex gap-8 items-center pb-2">
               {navLinks.map((link) => (
                   <div key={link.label}>{renderDesktopLink(link)}</div>
               ))}
