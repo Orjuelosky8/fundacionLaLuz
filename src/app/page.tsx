@@ -49,23 +49,7 @@ const personas = [
   },
 ]
 
-const aiBubbles = [
-    {
-        label: 'Salud Mental',
-        href: '#',
-        action: 'mental-health'
-    },
-    {
-        label: 'Plan de Bienestar',
-        href: '/wellness-recommendations',
-    },
-    {
-        label: 'Riesgo de Sustancias',
-        href: '/substance-use-risk',
-    }
-]
-
-const mobileBubbles = [
+const carouselBubbles = [
     { label: "Ansiedad", action: "mental-health" },
     { label: "Adicción", action: "mental-health" },
     { label: "Estrés", action: "mental-health" },
@@ -115,7 +99,7 @@ const MobileBubbleCarousel = () => {
     return (
         <div className="relative w-full h-40 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
             <div className="absolute flex animate-scroll">
-                {[...mobileBubbles, ...mobileBubbles].map((bubble, index) => (
+                {[...carouselBubbles, ...carouselBubbles].map((bubble, index) => (
                     <div 
                         key={`${bubble.label}-${index}`} 
                         className="group relative mx-2 shrink-0 flex flex-col items-center animate-wave-up-down"
@@ -136,16 +120,41 @@ const MobileBubbleCarousel = () => {
     )
 }
 
-export default function Home() {
+const DesktopBubbleCarousel = () => {
     const { openModal } = useChatbotModal();
 
-    const handleBubbleClick = (e: React.MouseEvent<HTMLAnchorElement>, action: string | undefined) => {
+    const handleBubbleClick = (e: React.MouseEvent<HTMLAnchorElement>, action?: string) => {
         if (action) {
             e.preventDefault();
             openModal(action as any);
         }
     };
-  
+    return (
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_5%,white_95%,transparent)]">
+            <div className="flex animate-scroll">
+                {[...carouselBubbles, ...carouselBubbles].map((bubble, index) => (
+                    <div 
+                        key={`${bubble.label}-desktop-${index}`} 
+                        className="group relative mx-2 shrink-0 flex flex-col items-center"
+                    >
+                        <Button
+                            asChild
+                            variant="outline"
+                            className="rounded-full border-primary/50 text-primary bg-background hover:bg-primary/10 hover:text-primary transition-colors duration-300 z-10"
+                        >
+                            <Link href={bubble.href || '#'} onClick={(e) => handleBubbleClick(e, bubble.action)}>{bubble.label}</Link>
+                        </Button>
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
+}
+
+
+export default function Home() {
+    const { openModal } = useChatbotModal();
+
   return (
     <div className="flex flex-col bg-background text-foreground">
       {/* Hero Section */}
@@ -153,8 +162,8 @@ export default function Home() {
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.1),_transparent_40%)]"></div>
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,254,0.1),_transparent_40%)]"></div>
           
-          <div className="container relative z-10 text-center animate-in fade-in slide-in-from-top-12 duration-1000 pt-32 md:pt-40 pb-32 md:pb-48">
-            {/* Desktop Hero */}
+          <div className="container relative z-10 text-center animate-in fade-in slide-in-from-top-12 duration-1000 pt-32 md:pt-40 pb-20 md:pb-48">
+            {/* Desktop Hero Content */}
             <div className="hidden md:block">
                 <LuziaIcon className="w-24 h-24 text-luz-yellow mx-auto mb-4" />
                 <p className="font-semibold text-lg text-primary-foreground/80 tracking-wider">BIENVENIDO A LUZIA</p>
@@ -164,17 +173,6 @@ export default function Home() {
                 <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-primary-foreground/90">
                 Apoyo accesible, confidencial y basado en tecnología para tu bienestar.
                 </p>
-                
-                <div className="mt-12">
-                    <p className="mb-4 font-semibold text-primary-foreground/80">Explora nuestras herramientas:</p>
-                    <div className="flex flex-wrap items-center justify-center gap-4">
-                    {aiBubbles.map(bubble => (
-                        <Button key={bubble.label} asChild size="lg" variant="secondary" className="rounded-full bg-white/90 text-primary hover:bg-white">
-                            <Link href={bubble.href} onClick={(e) => handleBubbleClick(e, bubble.action)}>{bubble.label}</Link>
-                        </Button>
-                    ))}
-                    </div>
-                </div>
             </div>
 
             {/* Mobile Hero */}
@@ -190,12 +188,20 @@ export default function Home() {
                     <MobileBubbleCarousel />
                 </div>
             </div>
-
           </div>
-           <div 
+          
+          <div 
             className="absolute bottom-0 left-0 w-full h-24 bg-background" 
             style={{ clipPath: 'ellipse(80% 70% at 50% 100%)' }}
           />
+      </section>
+
+      {/* Desktop Floating Bubble Section */}
+      <section className="hidden md:block container mx-auto -mt-24 relative z-20 animate-in fade-in slide-in-from-bottom-12 duration-1000">
+        <div className="bg-background rounded-2xl shadow-2xl p-8 max-w-4xl mx-auto">
+            <h2 className="text-3xl font-headline font-bold text-center mb-6 text-primary">¿Cómo te sientes hoy?</h2>
+            <DesktopBubbleCarousel />
+        </div>
       </section>
 
       {/* Personas Section */}
