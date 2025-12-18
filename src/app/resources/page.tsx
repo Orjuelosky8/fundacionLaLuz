@@ -101,10 +101,10 @@ export default function ResourcesPage() {
                             <TabsTrigger value="webinars" className="text-base">Webinars</TabsTrigger>
                         </TabsList>
                         <TabsContent value="podcasts">
-                           <div className="mt-12 rounded-2xl bg-amber-100/40 p-8 relative overflow-hidden">
-                               <div className="grid md:grid-cols-3 gap-8 items-center">
-                                   <div className="md:col-span-1 z-10">
-                                       <h3 className="font-headline text-4xl text-amber-900/80">Listen <br /> Podcasts on</h3>
+                           <div className="mt-12 rounded-2xl bg-amber-100/40 p-4 md:p-8 relative overflow-hidden">
+                               <div className="flex flex-col md:grid md:grid-cols-3 gap-8 items-center">
+                                   <div className="md:col-span-1 z-10 w-full">
+                                       <h3 className="font-headline text-3xl md:text-4xl text-amber-900/80">Listen <br /> Podcasts on</h3>
                                        <div className="space-y-3 mt-6">
                                             <Button className="w-full h-14 bg-black hover:bg-black/80 text-white rounded-full flex items-center justify-center text-lg font-bold">
                                                 <SpotifyIcon />
@@ -118,7 +118,7 @@ export default function ResourcesPage() {
                                             </Button>
                                        </div>
                                    </div>
-                                   <div className="md:col-span-2 relative">
+                                   <div className="md:col-span-2 relative w-full">
                                         {podcastBg && (
                                             <Image 
                                                 src={podcastBg.imageUrl} 

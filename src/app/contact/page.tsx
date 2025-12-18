@@ -94,7 +94,7 @@ export default function ContactPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-black/50 to-black/30 flex items-center justify-center">
-          <h1 className="text-6xl font-headline text-primary-foreground font-bold tracking-wider uppercase">Contáctanos</h1>
+          <h1 className="text-5xl md:text-6xl font-headline text-primary-foreground font-bold tracking-wider uppercase text-center">Contáctanos</h1>
         </div>
       </div>
       <div className="container mx-auto max-w-7xl px-4 py-16 md:py-24">
