@@ -26,13 +26,13 @@
     },
     {
       "id": "services-header",
-      "description": "An abstract image representing neural networks and technology.",
+      "description": "",
       "imageUrl": "https://images.unsplash.com/photo-1554493393-27299a3a9924?q=80&w=2070&auto=format&fit=crop",
       "imageHint": "abstract neural"
     },
     {
       "id": "contact-header",
-      "description": "Abstract image of light streaks representing communication.",
+      "description": "",
       "imageUrl": "https://images.unsplash.com/photo-1535924294008-cb3663673dd3?q=80&w=1974&auto=format&fit=crop",
       "imageHint": "abstract communication"
     },

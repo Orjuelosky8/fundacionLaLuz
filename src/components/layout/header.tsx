@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -64,23 +63,29 @@ export function Header() {
   ];
 
   const renderLink = (link: any, isMobile = false) => {
+    const commonClasses = isMobile ? 'px-4 py-3 font-semibold text-foreground text-lg w-full text-left rounded-md' : 'text-sm font-medium';
+
     if (link.subLinks) {
       if (isMobile) {
         return (
            <div>
-              <span className="px-4 py-2 font-semibold text-muted-foreground">
+              <span className="px-4 py-2 font-semibold text-muted-foreground text-base">
                 {link.label}
               </span>
-              <div className="flex flex-col space-y-2 pl-8 pt-2">
+              <div className="flex flex-col space-y-1 pl-6 pt-2">
                 {link.subLinks.map((subLink: any) => (
                   <SheetClose key={subLink.label} asChild>
-                    <Link
-                      href={subLink.href || '#'}
-                      onClick={subLink.action ? (e) => { e.preventDefault(); subLink.action(); } : undefined}
-                      className="text-foreground hover:text-primary text-lg"
+                    <button
+                      onClick={subLink.action ? (e) => { e.preventDefault(); subLink.action(); } : () => {
+                        const targetLink = document.createElement('a');
+                        targetLink.href = subLink.href;
+                        targetLink.click();
+                      }}
+                      className="text-foreground hover:text-primary text-lg text-left flex items-center gap-3 py-2"
                     >
-                      {subLink.label}
-                    </Link>
+                      <subLink.icon className="h-5 w-5 text-primary" />
+                      <span>{subLink.label}</span>
+                    </button>
                   </SheetClose>
                 ))}
               </div>
@@ -92,7 +97,7 @@ export function Header() {
           <DropdownMenu.Trigger asChild>
             <button
               className={cn(
-                'flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-primary focus:outline-none',
+                'flex items-center gap-1 text-sm font-medium text-foreground transition-colors hover:text-primary focus:outline-none',
                 link.subLinks.some(
                   (sl: any) => sl.href && pathname.startsWith(sl.href)
                 ) && 'text-primary'
@@ -136,9 +141,10 @@ export function Header() {
       <Link
         href={link.href!}
         className={cn(
-            'text-sm font-medium text-muted-foreground transition-colors hover:text-primary',
+            commonClasses,
+            'text-foreground transition-colors hover:text-primary',
             pathname === link.href && 'text-primary',
-            isMobile && 'px-4 py-2 font-semibold text-foreground text-lg'
+            isMobile ? 'hover:bg-muted' : ''
         )}
       >
         {link.label}
@@ -148,31 +154,30 @@ export function Header() {
 
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg">
-      <div className="container flex h-20 items-center">
+    <header className="absolute top-0 z-50 w-full">
+      <div className="container flex h-24 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Image
             src="/logoFundacionLaLuz.png"
             alt="Logo Fundacion la Luz"
-            width={100}
-            height={40}
+            width={120}
+            height={48}
             priority
+            className="invert"
           />
         </Link>
-        <nav className="hidden gap-6 md:flex flex-1 justify-center items-center">
+        <nav className="hidden gap-6 md:flex flex-1 justify-end items-center text-primary-foreground">
           {navLinks.map((link) => (
             <div key={link.label}>{renderLink(link)}</div>
           ))}
-        </nav>
-        <div className="hidden md:flex items-center justify-end">
-          <Button asChild>
+          <Button asChild variant="secondary">
             <Link href="/contact">Donar</Link>
           </Button>
-        </div>
+        </nav>
         <div className="flex flex-1 items-center justify-end md:hidden">
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="text-primary-foreground hover:text-primary-foreground hover:bg-white/10">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
@@ -199,7 +204,7 @@ export function Header() {
                     </Button>
                   </SheetClose>
                 </div>
-                <div className="flex flex-col space-y-4 p-4">
+                <div className="flex flex-col space-y-2 p-4">
                     {navLinks.map((link) => (
                         <div key={link.label}>
                             {link.subLinks ? renderLink(link, true) : (

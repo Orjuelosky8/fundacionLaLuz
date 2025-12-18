@@ -15,6 +15,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { testimonials } from '@/lib/data';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { LuziaIcon } from '@/components/icons';
+import { useChatbotModal } from '@/hooks/use-chatbot-modal';
 
 
 const heroImage = PlaceHolderImages.find((img) => img.id === 'hero');
@@ -46,6 +48,22 @@ const personas = [
   },
 ]
 
+const aiBubbles = [
+    {
+        label: 'Salud Mental',
+        href: '#',
+        action: 'mental-health'
+    },
+    {
+        label: 'Plan de Bienestar',
+        href: '/wellness-recommendations',
+    },
+    {
+        label: 'Riesgo de Sustancias',
+        href: '/substance-use-risk',
+    }
+]
+
 const InfiniteTestimonials = () => {
     return (
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
@@ -74,41 +92,48 @@ const InfiniteTestimonials = () => {
 
 
 export default function Home() {
+    const { openModal } = useChatbotModal();
+
+    const handleBubbleClick = (e: React.MouseEvent<HTMLAnchorElement>, action: string | undefined) => {
+        if (action) {
+            e.preventDefault();
+            openModal(action as any);
+        }
+    };
+  
   return (
     <div className="flex flex-col bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[90vh] min-h-[700px] w-full flex items-center justify-center text-center px-4 overflow-hidden">
-        {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            data-ai-hint={heroImage.imageHint}
-            fill
-            className="object-cover scale-105"
-            priority
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/70 to-background" />
-        
-        <div className="relative z-10 flex flex-col items-center animate-in fade-in slide-in-from-top-12 duration-1000">
-            <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-foreground">
-              FUNDACIÓN LA LUZ
+      <section className="relative w-full overflow-hidden bg-primary pb-12 pt-32 md:pt-40 text-primary-foreground">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.1),_transparent_40%)]"></div>
+          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.1),_transparent_40%)]"></div>
+          
+          <div className="container relative z-10 text-center animate-in fade-in slide-in-from-top-12 duration-1000">
+            <LuziaIcon className="w-24 h-24 text-luz-yellow mx-auto mb-4" />
+
+            <p className="font-semibold text-lg text-primary-foreground/80 tracking-wider">BIENVENIDO A LUZIA</p>
+            <h1 className="font-headline text-5xl md:text-7xl font-bold">
+              Tu Aliado Inteligente
             </h1>
-            <p className="mt-4 max-w-2xl text-lg md:text-xl text-muted-foreground font-light tracking-wide">
-             Tu Aliado Inteligente en Salud Mental y Rehabilitación
+            <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-primary-foreground/90">
+             Apoyo accesible, confidencial y basado en tecnología para tu bienestar.
             </p>
-            <p className="mt-2 max-w-4xl text-md md:text-lg text-muted-foreground">
-              Una iniciativa de la <strong className="font-semibold text-primary">Fundación La Luz</strong> para brindar apoyo accesible, confidencial y basado en tecnología.
-            </p>
-            <div className="mt-10 flex gap-4">
-              <Button asChild size="lg">
-                <Link href="/mental-health-assessment">Prueba la Evaluación IA</Link>
-              </Button>
-              <Button asChild size="lg" variant="secondary">
-                <Link href="/services-locations">Nuestros Programas</Link>
-              </Button>
+            
+            <div className="mt-12">
+                <p className="mb-4 font-semibold text-primary-foreground/80">Explora nuestras herramientas:</p>
+                <div className="flex flex-wrap items-center justify-center gap-4">
+                   {aiBubbles.map(bubble => (
+                       <Button key={bubble.label} asChild size="lg" variant="secondary" className="rounded-full bg-white/90 text-primary hover:bg-white">
+                           <Link href={bubble.href} onClick={(e) => handleBubbleClick(e, bubble.action)}>{bubble.label}</Link>
+                       </Button>
+                   ))}
+                </div>
             </div>
-        </div>
+          </div>
+          <div 
+            className="absolute bottom-[-1px] left-0 w-full h-24 bg-background" 
+            style={{ clipPath: 'ellipse(50% 100% at 50% 100%)' }}
+          />
       </section>
 
       {/* Personas Section */}
@@ -250,5 +275,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
