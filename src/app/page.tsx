@@ -182,7 +182,7 @@ export default function Home() {
             </div>
             <div className="col-span-1 flex justify-end h-full relative">
                  <Image 
-                    src="/inicio/SiluetaPersonaPortada.png"
+                    src="/inicio/SiluetaPersona-Portada.png"
                     alt="Silueta de una persona"
                     width={450}
                     height={600}
