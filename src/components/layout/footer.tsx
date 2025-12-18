@@ -16,9 +16,6 @@ const foundationLinks = [
     { label: "Nuestra Historia", href: "/#about" },
     { label: "Donar (Plan Padrino)", href: "/contact" },
     { label: "Blog", href: "#" },
-];
-
-const legalLinks = [
     { label: "Política de Privacidad", href: "#" },
     { label: "Términos de Servicio", href: "#" },
 ];
@@ -62,23 +59,13 @@ export function Footer() {
           </div>
           
           {/* Right Column */}
-          <div className="grid grid-cols-2 gap-8">
-             <div>
-              <h3 className="font-semibold mb-4 text-foreground">Fundación</h3>
-              <ul className="space-y-2 text-sm">
-                {foundationLinks.map(link => (
-                  <li key={`${link.label}-${link.href}`}><Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors">{link.label}</Link></li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4 text-foreground">Legal</h3>
-              <ul className="space-y-2 text-sm">
-                {legalLinks.map(link => (
-                  <li key={`${link.label}-${link.href}`}><Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors">{link.label}</Link></li>
-                ))}
-              </ul>
-            </div>
+          <div>
+            <h3 className="font-semibold mb-4 text-foreground">Nosotros</h3>
+            <ul className="space-y-2 text-sm">
+              {foundationLinks.map(link => (
+                <li key={`${link.label}-${link.href}`}><Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors">{link.label}</Link></li>
+              ))}
+            </ul>
           </div>
         </div>
 
@@ -111,7 +98,7 @@ export function Footer() {
                     </ul>
                 </div>
                 <div>
-                    <h3 className="font-semibold mb-4 text-foreground">Fundación</h3>
+                    <h3 className="font-semibold mb-4 text-foreground">Nosotros</h3>
                     <ul className="space-y-2 text-sm">
                         {foundationLinks.map(link => (
                             <li key={`${link.label}-${link.href}`}><Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors">{link.label}</Link></li>
