@@ -113,7 +113,7 @@ const MobileBubbleCarousel = () => {
         }
     };
     return (
-        <div className="relative w-full h-32 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+        <div className="relative w-full h-40 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
             <div className="absolute flex animate-scroll">
                 {[...mobileBubbles, ...mobileBubbles].map((bubble, index) => (
                     <div 
