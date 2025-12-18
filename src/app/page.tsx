@@ -114,9 +114,13 @@ const MobileBubbleCarousel = () => {
     };
     return (
         <div className="relative w-full h-32 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
-            <div className="absolute flex animate-wave-scroll">
+            <div className="absolute flex animate-scroll">
                 {[...mobileBubbles, ...mobileBubbles].map((bubble, index) => (
-                    <div key={`${bubble.label}-${index}`} className="group relative mx-2 shrink-0 flex flex-col items-center">
+                    <div 
+                        key={`${bubble.label}-${index}`} 
+                        className="group relative mx-2 shrink-0 flex flex-col items-center animate-wave-up-down"
+                        style={{ animationDelay: `${index * 0.2}s` }}
+                    >
                         <Button
                             asChild
                             variant="secondary"
