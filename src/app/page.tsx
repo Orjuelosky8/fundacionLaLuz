@@ -65,10 +65,16 @@ const aiBubbles = [
 ]
 
 const mobileBubbles = [
-    { label: "Ansiedad", href: "#", action: "mental-health" },
-    { label: "Estrés", href: "#", action: "mental-health" },
+    { label: "Ansiedad", action: "mental-health" },
+    { label: "Adicción", action: "mental-health" },
+    { label: "Estrés", action: "mental-health" },
+    { label: "Soledad", action: "mental-health" },
     { label: "Apoyo Familiar", href: "/contact" },
+    { label: "Depresión", action: "mental-health" },
+    { label: "Recaída", action: "mental-health" },
+    { label: "Cambio", action: "mental-health" },
 ];
+
 
 const InfiniteTestimonials = () => {
     return (
@@ -96,6 +102,19 @@ const InfiniteTestimonials = () => {
     );
 };
 
+const MobileBubbleCarousel = () => {
+    return (
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
+            <div className="flex animate-scroll-bubbles">
+                {[...mobileBubbles, ...mobileBubbles].map((bubble, index) => (
+                    <Button key={`${bubble.label}-${index}`} asChild variant="secondary" className="rounded-full bg-white/90 text-primary hover:bg-white mx-2 shrink-0">
+                        <Link href={bubble.href || '#'} onClick={bubble.action ? (e) => e.preventDefault() : undefined}>{bubble.label}</Link>
+                    </Button>
+                ))}
+            </div>
+        </div>
+    )
+}
 
 export default function Home() {
     const { openModal } = useChatbotModal();
@@ -148,20 +167,14 @@ export default function Home() {
                 </p>
                 
                 <div className="mt-8">
-                    <div className="flex flex-wrap items-center justify-center gap-3">
-                        {mobileBubbles.map(bubble => (
-                        <Button key={bubble.label} asChild variant="secondary" className="rounded-full bg-white/90 text-primary hover:bg-white">
-                            <Link href={bubble.href} onClick={(e) => handleBubbleClick(e, bubble.action)}>{bubble.label}</Link>
-                        </Button>
-                    ))}
-                    </div>
+                    <MobileBubbleCarousel />
                 </div>
             </div>
 
           </div>
            <div 
             className="absolute bottom-0 left-0 w-full h-24 bg-background" 
-            style={{ clipPath: 'ellipse(75% 60% at 50% 100%)' }}
+            style={{ clipPath: 'ellipse(80% 60% at 50% 100%)' }}
           />
       </section>
 
