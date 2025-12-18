@@ -1,3 +1,4 @@
+
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -39,27 +40,27 @@ const formSchema = z.object({
 });
 
 const contactChannels = [
-    {
-        icon: Phone,
-        title: "Líneas Telefónicas",
-        details: ["Bogotá: 300 829 4982", "Antioquia: 304 448 5555", "Chinauta: 302 218 4853"],
-        action: "Llamar Ahora",
-        href: "tel:+573008294982"
-    },
-    {
-        icon: MessageSquare,
-        title: "Atención vía WhatsApp",
-        details: ["Inicia una conversación directa con un asesor para orientación inmediata y confidencial."],
-        action: "Chatear Ahora",
-        href: "https://wa.me/573008294982"
-    },
-    {
-        icon: Building,
-        title: "Oficina Principal",
-        details: ["Calle 80 #116B-35, Bogotá", "Barrio Alhambra"],
-        action: "Ver en Mapa",
-        href: "https://www.google.com/maps/search/?api=1&query=Calle+80+%23116B-35,+Bogot%C3%A1"
-    }
+  {
+    icon: Phone,
+    title: "Líneas Telefónicas",
+    details: ["Bogotá: 300 829 4982", "Antioquia: 304 448 5555", "Chinauta: 302 218 4853"],
+    action: "Llamar Ahora",
+    href: "tel:+573008294982"
+  },
+  {
+    icon: MessageSquare,
+    title: "Atención vía WhatsApp",
+    details: ["Inicia una conversación directa con un asesor para orientación inmediata y confidencial."],
+    action: "Chatear Ahora",
+    href: "https://wa.me/573008294982"
+  },
+  {
+    icon: Building,
+    title: "Oficina Principal",
+    details: ["Calle 80 #116B-35, Bogotá", "Barrio Alhambra"],
+    action: "Ver en Mapa",
+    href: "https://www.google.com/maps/search/?api=1&query=Calle+80+%23116B-35,+Bogot%C3%A1"
+  }
 ]
 
 export default function ContactPage() {
@@ -86,17 +87,14 @@ export default function ContactPage() {
   return (
     <div className="bg-background">
       <div className="relative h-80 w-full">
-        {contactImage && (
-          <Image
-            src={contactImage.imageUrl}
-            alt={contactImage.description}
-            data-ai-hint={contactImage.imageHint}
-            fill
-            className="object-cover"
-          />
-        )}
+        <Image
+          src="/contact/HeaderContacto.png"
+          alt="Encabezado de contactenos"
+          fill
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-black/50 to-black/30 flex items-center justify-center">
-            <h1 className="text-6xl font-headline text-primary-foreground font-bold tracking-wider uppercase">Contáctanos</h1>
+          <h1 className="text-6xl font-headline text-primary-foreground font-bold tracking-wider uppercase">Contáctanos</h1>
         </div>
       </div>
       <div className="container mx-auto max-w-7xl px-4 py-16 md:py-24">
@@ -108,24 +106,24 @@ export default function ContactPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
-            {contactChannels.map(channel => (
-                <Card key={channel.title} className="bg-card/90 border-border hover:border-primary transition-all duration-300 flex flex-col shadow-lg hover:shadow-xl">
-                   <CardContent className="p-6 flex-grow">
-                        <div className="p-3 bg-primary/10 rounded-full inline-block mb-4">
-                            <channel.icon className="w-8 h-8 text-primary"/>
-                        </div>
-                        <h3 className="font-headline text-2xl text-foreground mb-2">{channel.title}</h3>
-                        <div className="text-muted-foreground text-sm space-y-1">
-                            {channel.details.map((detail, i) => <p key={i}>{detail}</p>)}
-                        </div>
-                   </CardContent>
-                   <div className="p-6 pt-0 mt-auto">
-                     <Button asChild className="w-full">
-                        <a href={channel.href} target="_blank" rel="noopener noreferrer">{channel.action}</a>
-                     </Button>
-                   </div>
-                </Card>
-            ))}
+          {contactChannels.map(channel => (
+            <Card key={channel.title} className="bg-card/90 border-border hover:border-primary transition-all duration-300 flex flex-col shadow-lg hover:shadow-xl">
+              <CardContent className="p-6 flex-grow">
+                <div className="p-3 bg-primary/10 rounded-full inline-block mb-4">
+                  <channel.icon className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-headline text-2xl text-foreground mb-2">{channel.title}</h3>
+                <div className="text-muted-foreground text-sm space-y-1">
+                  {channel.details.map((detail, i) => <p key={i}>{detail}</p>)}
+                </div>
+              </CardContent>
+              <div className="p-6 pt-0 mt-auto">
+                <Button asChild className="w-full">
+                  <a href={channel.href} target="_blank" rel="noopener noreferrer">{channel.action}</a>
+                </Button>
+              </div>
+            </Card>
+          ))}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
@@ -135,13 +133,13 @@ export default function ContactPage() {
               Si prefieres, completa el siguiente formulario y uno de nuestros especialistas se comunicará contigo a la brevedad. Tu consulta es confidencial.
             </p>
             <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                    <Mail className="w-6 h-6 text-primary mt-1"/>
-                    <div>
-                        <span className="font-semibold text-foreground">Notificaciones Judiciales</span>
-                        <p className="text-sm text-muted-foreground">representantelegal@fundacionlaluz.net</p>
-                    </div>
+              <div className="flex items-start gap-4">
+                <Mail className="w-6 h-6 text-primary mt-1" />
+                <div>
+                  <span className="font-semibold text-foreground">Notificaciones Judiciales</span>
+                  <p className="text-sm text-muted-foreground">representantelegal@fundacionlaluz.net</p>
                 </div>
+              </div>
             </div>
           </div>
           <div className="md:col-span-3">
@@ -219,7 +217,7 @@ export default function ContactPage() {
                     )}
                   />
                   <Button type="submit" className="w-full">
-                    <Send className="mr-2 h-4 w-4"/>
+                    <Send className="mr-2 h-4 w-4" />
                     Enviar Mensaje
                   </Button>
                 </form>
