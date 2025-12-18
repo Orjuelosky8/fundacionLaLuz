@@ -54,7 +54,7 @@ export default function RootLayout({
       >
         <div className="flex min-h-screen flex-col">
           <Header />
-          <main className="flex-grow pt-0">{children}</main>
+          <main className="flex-grow">{children}</main>
           <Footer />
         </div>
         <FloatingContactButton />

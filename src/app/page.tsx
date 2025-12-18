@@ -98,7 +98,7 @@ const MobileBubbleCarousel = () => {
     };
     return (
         <div className="relative w-full h-40 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
-            <div className="absolute flex animate-scroll">
+             <div className="absolute flex animate-scroll">
                 {[...carouselBubbles, ...carouselBubbles].map((bubble, index) => (
                     <div 
                         key={`${bubble.label}-${index}`} 
@@ -144,6 +144,7 @@ const DesktopBubbleCarousel = () => {
                         >
                             <Link href={bubble.href || '#'} onClick={(e) => handleBubbleClick(e, bubble.action)}>{bubble.label}</Link>
                         </Button>
+                         <Smile className="absolute top-full mt-2 h-6 w-6 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                 ))}
             </div>
@@ -158,54 +159,43 @@ export default function Home() {
   return (
     <div className="flex flex-col bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative w-full overflow-hidden bg-primary text-primary-foreground">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.1),_transparent_40%)]"></div>
-          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,254,0.1),_transparent_40%)]"></div>
-          
-          <div className="container relative z-10 text-center animate-in fade-in slide-in-from-top-12 duration-1000 pt-32 md:pt-40 pb-20 md:pb-48">
-            {/* Desktop Hero Content */}
-            <div className="hidden md:block">
-                <LuziaIcon className="w-24 h-24 text-luz-yellow mx-auto mb-4" />
-                <p className="font-semibold text-lg text-primary-foreground/80 tracking-wider">BIENVENIDO A LUZIA</p>
-                <h1 className="font-headline text-5xl md:text-7xl font-bold">
-                Tu Aliado Inteligente
-                </h1>
-                <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-primary-foreground/90">
-                Apoyo accesible, confidencial y basado en tecnología para tu bienestar.
-                </p>
-            </div>
-
-            {/* Mobile Hero */}
-            <div className="md:hidden">
-                <h1 className="font-headline text-4xl font-bold">
-                    Aquí para escucharte.
-                </h1>
-                <p className="mt-4 max-w-2xl mx-auto text-lg text-primary-foreground/90">
-                    Un espacio seguro para encontrar calma y apoyo. No estás solo.
-                </p>
-                
-                <div className="mt-8">
-                    <MobileBubbleCarousel />
-                </div>
-            </div>
-          </div>
-          
-          <div 
-            className="absolute bottom-0 left-0 w-full h-24 bg-background" 
-            style={{ clipPath: 'ellipse(80% 70% at 50% 100%)' }}
+      <section className="relative w-full h-[70vh] md:h-[calc(100vh-200px)] min-h-[500px] flex items-center justify-center text-center text-white overflow-hidden">
+        {heroImage && (
+          <Image
+            src="https://images.unsplash.com/photo-1506126613408-4e05210985c7?q=80&w=2070&auto=format&fit=crop"
+            alt="Persona meditando en un muelle"
+            data-ai-hint="person meditating"
+            fill
+            className="object-cover object-center"
+            priority
           />
+        )}
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 animate-in fade-in slide-in-from-bottom-12 duration-1000">
+            <p className="text-lg md:text-xl">Bienvenido a tu espacio seguro</p>
+            <h1 className="text-4xl md:text-7xl font-bold font-headline mt-2">
+                Respira y <span className="text-luz-yellow">Comienza...</span>
+            </h1>
+        </div>
       </section>
 
-      {/* Desktop Floating Bubble Section */}
-      <section className="hidden md:block container mx-auto -mt-24 relative z-20 animate-in fade-in slide-in-from-bottom-12 duration-1000">
-        <div className="bg-background rounded-2xl shadow-2xl p-8 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-headline font-bold text-center mb-6 text-primary">¿Cómo te sientes hoy?</h2>
-            <DesktopBubbleCarousel />
+      {/* Floating "How are you feeling" section */}
+       <section className="container mx-auto -mt-24 md:-mt-20 relative z-20 animate-in fade-in slide-in-from-bottom-12 duration-1000">
+        <div className="bg-background rounded-2xl shadow-2xl p-6 md:p-8 max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-headline font-bold text-center mb-6 text-primary">¿Cómo te sientes hoy?</h2>
+            {/* Mobile Carousel */}
+            <div className="md:hidden">
+              <MobileBubbleCarousel />
+            </div>
+            {/* Desktop Carousel */}
+            <div className="hidden md:block">
+              <DesktopBubbleCarousel />
+            </div>
         </div>
       </section>
 
       {/* Personas Section */}
-      <section className="py-16 md:py-24 container mx-auto animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500">
+      <section className="py-16 md:py-24 container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="font-headline text-4xl md:text-5xl text-primary mb-4">
             Un Camino para Cada Necesidad
@@ -265,7 +255,7 @@ export default function Home() {
 
        {/* AI Features Section */}
       <section className="bg-muted/30 py-16 md:py-24">
-        <div className="container mx-auto px-4 animate-in fade-in slide-in-from-bottom-12 duration-1000">
+        <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="font-headline text-4xl md:text-5xl text-primary mb-4">
               Innovación y Tecnología a tu Servicio
@@ -314,7 +304,7 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <section className="py-16 md:py-24 space-y-16 overflow-hidden">
-          <div className="text-center max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-12 duration-1000">
+          <div className="text-center max-w-3xl mx-auto">
             <h2 className="font-headline text-4xl md:text-5xl text-primary mb-4">
               Historias que Inspiran
             </h2>
@@ -327,7 +317,7 @@ export default function Home() {
       
       {/* CTA Section */}
       <section className="bg-primary text-primary-foreground py-20 text-center">
-        <div className="container mx-auto px-4 animate-in fade-in duration-1000">
+        <div className="container mx-auto px-4">
           <h2 className="font-headline text-4xl md:text-5xl font-bold">
             ¿Listo para dar el primer paso?
           </h2>
