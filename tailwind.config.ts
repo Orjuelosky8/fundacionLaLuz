@@ -78,8 +78,11 @@ const config = {
           "100%": { transform: "translateX(-50%)" },
         },
         "wave-scroll": {
-            '0%': { transform: 'translateX(0)' },
-            '100%': { transform: 'translateX(-50%)' },
+            '0%': { transform: 'translateX(0) translateY(0)' },
+            '25%': { transform: 'translateX(-12.5%) translateY(-10px)' },
+            '50%': { transform: 'translateX(-25%) translateY(0)' },
+            '75%': { transform: 'translateX(-37.5%) translateY(10px)' },
+            '100%': { transform: 'translateX(-50%) translateY(0)' },
         }
       },
       animation: {

@@ -8,6 +8,7 @@ import {
   BrainCircuit,
   Bot,
   ShieldCheck,
+  Smile,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -112,17 +113,19 @@ const MobileBubbleCarousel = () => {
         }
     };
     return (
-        <div className="relative w-full h-24 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+        <div className="relative w-full h-32 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
             <div className="absolute flex animate-wave-scroll">
                 {[...mobileBubbles, ...mobileBubbles].map((bubble, index) => (
-                    <Button 
-                        key={`${bubble.label}-${index}`} 
-                        asChild 
-                        variant="secondary" 
-                        className="rounded-full bg-white/90 text-primary hover:bg-white mx-2 shrink-0"
-                    >
-                        <Link href={bubble.href || '#'} onClick={(e) => handleBubbleClick(e, bubble.action)}>{bubble.label}</Link>
-                    </Button>
+                    <div key={`${bubble.label}-${index}`} className="group relative mx-2 shrink-0 flex flex-col items-center">
+                        <Button
+                            asChild
+                            variant="secondary"
+                            className="rounded-full bg-white/90 text-primary group-hover:bg-luz-yellow transition-colors duration-300 z-10"
+                        >
+                            <Link href={bubble.href || '#'} onClick={(e) => handleBubbleClick(e, bubble.action)}>{bubble.label}</Link>
+                        </Button>
+                         <Smile className="absolute top-full mt-2 h-6 w-6 text-luz-yellow opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
                 ))}
             </div>
         </div>
