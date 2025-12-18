@@ -103,18 +103,25 @@ const InfiniteTestimonials = () => {
 };
 
 const MobileBubbleCarousel = () => {
+    const { openModal } = useChatbotModal();
+
+    const handleBubbleClick = (e: React.MouseEvent<HTMLAnchorElement>, action?: string) => {
+        if (action) {
+            e.preventDefault();
+            openModal(action as any);
+        }
+    };
     return (
         <div className="relative w-full h-24 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
-            <div className="absolute flex">
+            <div className="absolute flex animate-wave-scroll">
                 {[...mobileBubbles, ...mobileBubbles].map((bubble, index) => (
                     <Button 
                         key={`${bubble.label}-${index}`} 
                         asChild 
                         variant="secondary" 
-                        className="rounded-full bg-white/90 text-primary hover:bg-white mx-2 shrink-0 animate-wave-scroll"
-                        style={{ animationDelay: `${index * 1}s` }}
+                        className="rounded-full bg-white/90 text-primary hover:bg-white mx-2 shrink-0"
                     >
-                        <Link href={bubble.href || '#'} onClick={bubble.action ? (e) => e.preventDefault() : undefined}>{bubble.label}</Link>
+                        <Link href={bubble.href || '#'} onClick={(e) => handleBubbleClick(e, bubble.action)}>{bubble.label}</Link>
                     </Button>
                 ))}
             </div>
