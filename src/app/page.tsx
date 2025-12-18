@@ -104,10 +104,16 @@ const InfiniteTestimonials = () => {
 
 const MobileBubbleCarousel = () => {
     return (
-        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
-            <div className="flex animate-scroll-bubbles">
+        <div className="relative w-full h-24 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+            <div className="absolute flex">
                 {[...mobileBubbles, ...mobileBubbles].map((bubble, index) => (
-                    <Button key={`${bubble.label}-${index}`} asChild variant="secondary" className="rounded-full bg-white/90 text-primary hover:bg-white mx-2 shrink-0">
+                    <Button 
+                        key={`${bubble.label}-${index}`} 
+                        asChild 
+                        variant="secondary" 
+                        className="rounded-full bg-white/90 text-primary hover:bg-white mx-2 shrink-0 animate-wave-scroll"
+                        style={{ animationDelay: `${index * 1}s` }}
+                    >
                         <Link href={bubble.href || '#'} onClick={bubble.action ? (e) => e.preventDefault() : undefined}>{bubble.label}</Link>
                     </Button>
                 ))}
@@ -174,7 +180,7 @@ export default function Home() {
           </div>
            <div 
             className="absolute bottom-0 left-0 w-full h-24 bg-background" 
-            style={{ clipPath: 'ellipse(80% 60% at 50% 100%)' }}
+            style={{ clipPath: 'ellipse(80% 70% at 50% 100%)' }}
           />
       </section>
 
