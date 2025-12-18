@@ -98,7 +98,8 @@ const MobileBubbleCarousel = () => {
         }
     };
     return (
-        <div className="relative w-full h-40 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+      <div className="relative w-full h-40 py-6 overflow-hidden
+      [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">    
              <div className="absolute flex animate-scroll">
                 {[...carouselBubbles, ...carouselBubbles].map((bubble, index) => (
                     <div
@@ -160,7 +161,7 @@ export default function Home() {
   return (
     <div className="flex flex-col bg-background text-foreground">
       {/* Hero Section - Desktop */}
-      <section className="hidden md:block relative w-full h-[calc(100vh-88px)] min-h-[500px] items-center justify-center text-white overflow-hidden">
+      <section className="hidden md:block relative w-full h-[calc(100vh-88px)] min-h-[500px] items-center justify-center text-white overflow-hidden" style={{ borderBottomLeftRadius: '50% 15%', borderBottomRightRadius: '50% 15%' }}>
         <video
           src="/inicio/CascadaPortada.mp4"
           autoPlay
@@ -192,7 +193,7 @@ export default function Home() {
       </section>
 
       {/* Hero Section - Mobile */}
-      <section className="md:hidden relative w-full h-[70vh] min-h-[450px] flex flex-col justify-center text-white overflow-hidden">
+      <section className="md:hidden relative w-full h-[70vh] min-h-[450px] flex flex-col justify-center text-white overflow-hidden" style={{ borderBottomLeftRadius: '50% 15%', borderBottomRightRadius: '50% 15%' }}>
         <video
           src="/inicio/CascadaPortada.mp4"
           autoPlay
