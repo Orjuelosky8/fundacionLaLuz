@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -12,7 +13,7 @@ import {
   HeartHandshake,
 } from 'lucide-react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -32,6 +33,11 @@ export function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { openModal } = useChatbotModal();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const navLinks = [
     { href: '/', label: 'Inicio' },
@@ -172,6 +178,14 @@ export function Header() {
     );
   };
 
+
+  if (!isClient) {
+    return (
+        <>
+            <header className="sticky top-0 z-50 h-[88px] md:h-[105px]"></header>
+        </>
+    )
+  }
 
   return (
     <>

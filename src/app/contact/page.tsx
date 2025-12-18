@@ -87,13 +87,13 @@ export default function ContactPage() {
     <div className="bg-background">
       <div className="relative h-80 w-full">
         {contactImage && (
-             <Image
-                src={contactImage.imageUrl}
-                alt={contactImage.description}
-                data-ai-hint={contactImage.imageHint}
-                fill
-                className="object-cover"
-              />
+          <Image
+            src={contactImage.imageUrl}
+            alt={contactImage.description}
+            data-ai-hint={contactImage.imageHint}
+            fill
+            className="object-cover"
+          />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-black/50 to-black/30 flex items-center justify-center">
             <h1 className="text-6xl font-headline text-primary-foreground font-bold tracking-wider uppercase">Contáctanos</h1>

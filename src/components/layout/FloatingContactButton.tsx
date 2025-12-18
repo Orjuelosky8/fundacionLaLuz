@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Bot, X, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -23,6 +23,11 @@ const WhatsAppIcon = () => (
 export function FloatingContactButton() {
   const [isOpen, setIsOpen] = useState(false);
   const { openModal } = useChatbotModal();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleChatbotClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -47,6 +52,10 @@ export function FloatingContactButton() {
       bgColor: 'bg-primary'
     },
   ];
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
@@ -87,4 +96,3 @@ export function FloatingContactButton() {
     </div>
   );
 }
-
