@@ -1,4 +1,4 @@
-import type { Testimonial, Location, ResourceCard } from './definitions';
+import type { Testimonial, Location, ResourceCard, PodcastEpisode } from './definitions';
 import { PlaceHolderImages } from './placeholder-images';
 
 const testimonialImage1 = PlaceHolderImages.find(p => p.id === 'testimonial-1')?.imageUrl || '';
@@ -112,4 +112,29 @@ export const therapyResources: ResourceCard[] = [
     href: '#',
     type: 'resource',
   },
+];
+
+
+export const podcastEpisodes: PodcastEpisode[] = [
+    {
+        id: 'podcast-1',
+        title: 'Podcast Ep. 40 – Encontrando el Coraje Para Cambiar Tu Vida...',
+        date: 'Agosto 13, 2021',
+        imageUrl: PlaceHolderImages.find(p => p.id === 'podcast-courage')?.imageUrl || '',
+        href: '#',
+    },
+    {
+        id: 'podcast-2',
+        title: 'Podcast Ep. 39 – Lo que aprendí de mi experiencia con el COVID 19...',
+        date: 'Julio 23, 2021',
+        imageUrl: PlaceHolderImages.find(p => p.id === 'podcast-covid')?.imageUrl || '',
+        href: '#',
+    },
+    {
+        id: 'podcast-3',
+        title: 'Podcast Ep. 38 – Superando la Ansiedad Social',
+        date: 'Julio 9, 2021',
+        imageUrl: PlaceHolderImages.find(p => p.id === 'podcast-anxiety')?.imageUrl || '',
+        href: '#',
+    },
 ];

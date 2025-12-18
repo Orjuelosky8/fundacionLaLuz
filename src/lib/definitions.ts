@@ -20,3 +20,11 @@ export type ResourceCard = {
     href: string;
     type: 'quiz' | 'resource';
 }
+
+export type PodcastEpisode = {
+    id: string;
+    title: string;
+    date: string;
+    imageUrl: string;
+    href: string;
+}

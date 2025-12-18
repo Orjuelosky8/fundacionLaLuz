@@ -156,53 +156,6 @@ const DesktopBubbleCarousel = () => {
     )
 }
 
-const ResourceSection = ({ title, resources, bgColor }: { title: string, resources: ResourceCard[], bgColor?: string }) => {
-    return (
-        <section className={`py-16 md:py-24 ${bgColor || ''}`}>
-            <div className="container mx-auto px-4">
-                <div className="flex justify-between items-center mb-8">
-                    <h2 className="font-headline text-3xl md:text-4xl text-primary">{title}</h2>
-                    <Button variant="link" asChild>
-                        <Link href="#">Ver Todo <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                    </Button>
-                </div>
-                <div className="relative">
-                    <div className="flex gap-6 pb-4 -mx-4 px-4 overflow-x-auto">
-                        {resources.map(item => (
-                            <div key={item.id} className="w-80 shrink-0">
-                                {item.type === 'quiz' ? (
-                                    <Link href={item.href}>
-                                    <Card className="h-full flex flex-col items-center text-center p-6 bg-luz-yellow/20 hover:bg-luz-yellow/40 transition-colors duration-300 rounded-2xl shadow-lg border-0">
-                                        <div className="relative h-32 w-32 mb-4">
-                                            <Image src={item.imageUrl} alt={item.title} layout="fill" className="rounded-full object-cover"/>
-                                        </div>
-                                        <CardHeader className="p-0">
-                                            <CardTitle className="font-sans text-lg font-semibold text-foreground">{item.title}</CardTitle>
-                                        </CardHeader>
-                                    </Card>
-                                    </Link>
-                                ) : (
-                                    <Link href={item.href}>
-                                    <Card className="h-full flex flex-col bg-card hover:border-primary/50 transition-all duration-300 rounded-2xl shadow-lg overflow-hidden">
-                                        <div className="relative h-48 w-full">
-                                            <Image src={item.imageUrl} alt={item.title} layout="fill" className="object-cover"/>
-                                        </div>
-                                        <div className="p-6">
-                                            <h3 className="font-semibold text-lg mb-2 text-foreground">{item.title}</h3>
-                                            <p className="text-sm text-muted-foreground">{item.description}</p>
-                                        </div>
-                                    </Card>
-                                    </Link>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
-    )
-};
-
 export default function Home() {
     const { openModal } = useChatbotModal();
 
@@ -380,13 +333,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Resources Section */}
-      <div>
-        <ResourceSection title="Cuestionarios Rápidos" resources={quickQuizzes} />
-        <ResourceSection title="Recursos Terapéuticos" resources={therapyResources} bgColor="bg-muted/30" />
-      </div>
-
-
       {/* Testimonials Section */}
       <section className="py-16 md:py-24 space-y-16 overflow-hidden">
           <div className="text-center max-w-3xl mx-auto">
@@ -418,5 +364,3 @@ export default function Home() {
     </div>
   );
 }
-
-    

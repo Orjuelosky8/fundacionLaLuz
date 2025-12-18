@@ -66,12 +66,13 @@ export function Header() {
         },
       ],
     },
+    { href: '/resources', label: 'Recursos' },
     { href: '/financials', label: 'Transparencia' },
     { href: '/contact', label: 'Contacto' },
   ];
 
   const renderDesktopLink = (link: any) => {
-    const isActive = link.href === pathname || (link.subLinks && link.subLinks.some((sl: any) => sl.href && pathname.startsWith(sl.href)));
+    const isActive = link.href === pathname || (link.subLinks && link.subLinks.some((sl: any) => sl.href && pathname.startsWith(sl.href))) || (link.href && pathname.startsWith(link.href) && link.href !== '/');
     
     if (link.subLinks) {
       return (
@@ -127,13 +128,13 @@ export function Header() {
         href={link.href!}
         className={cn(
             'group relative text-base font-medium text-foreground transition-colors hover:text-primary',
-            isActive && 'text-primary'
+            isActive && pathname === link.href && 'text-primary'
         )}
       >
         {link.label}
         <span className={cn(
             "absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300",
-            isActive ? "w-full" : "w-0 group-hover:w-full"
+            isActive && pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
         )} />
       </Link>
     );
@@ -150,7 +151,8 @@ export function Header() {
               {link.subLinks.map((subLink: any) => (
                 <SheetClose key={subLink.label} asChild>
                   <button
-                    onClick={subLink.action ? (e) => { e.preventDefault(); subLink.action(); } : () => {
+                    onClick={subLink.action ? (e) => { e.preventDefault(); subLink.action(); setMobileMenuOpen(false); } : () => {
+                      setMobileMenuOpen(false);
                       const targetLink = document.createElement('a');
                       targetLink.href = subLink.href;
                       targetLink.click();
@@ -171,6 +173,7 @@ export function Header() {
         <Link
           href={link.href!}
           className='px-4 py-3 font-semibold text-foreground text-lg w-full text-left rounded-md hover:bg-muted'
+           onClick={() => setMobileMenuOpen(false)}
         >
           {link.label}
         </Link>

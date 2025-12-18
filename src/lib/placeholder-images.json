@@ -107,6 +107,30 @@
       "description": "A person meditating peacefully.",
       "imageUrl": "https://images.unsplash.com/photo-1506126613408-4e7e9b7b0d99?q=80&w=800&auto=format&fit=crop",
       "imageHint": "person meditating"
+    },
+    {
+      "id": "podcast-bg",
+      "description": "A person relaxing on a couch, listening to something.",
+      "imageUrl": "https://images.unsplash.com/photo-1587834469954-406456a42258?q=80&w=1287&auto=format&fit=crop",
+      "imageHint": "person relaxing"
+    },
+    {
+      "id": "podcast-courage",
+      "description": "A woman with arms outstretched in a field of yellow flowers.",
+      "imageUrl": "https://images.unsplash.com/photo-1623961347859-2a47b5ac3465?q=80&w=800&auto=format&fit=crop",
+      "imageHint": "woman freedom"
+    },
+    {
+      "id": "podcast-covid",
+      "description": "Portrait of a man with a blue-toned background with virus illustrations.",
+      "imageUrl": "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?q=80&w=800&auto=format&fit=crop",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "podcast-anxiety",
+      "description": "Abstract image representing social anxiety.",
+      "imageUrl": "https://images.unsplash.com/photo-1596851474948-a158f4c2b93e?q=80&w=800&auto=format&fit=crop",
+      "imageHint": "abstract anxiety"
     }
   ]
 }
