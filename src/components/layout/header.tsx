@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -256,8 +255,8 @@ export function Header() {
         <div className="bg-primary text-primary-foreground text-center text-xs py-1 px-4">
           Probablemente podemos ayudarte
         </div>
-        <div className="container flex flex-col items-center">
-           <Link href="/" className="my-1">
+        <div className="container flex h-[68px] items-center">
+           <Link href="/" className="mr-8">
             <Image
                 src="/logoFundacionLaLuz.png"
                 alt="Logo Fundacion la Luz"
@@ -266,11 +265,14 @@ export function Header() {
                 priority
             />
             </Link>
-            <nav className="flex gap-8 items-center pb-1">
+            <nav className="flex gap-8 items-center mx-auto">
               {navLinks.map((link) => (
                   <div key={link.label}>{renderDesktopLink(link)}</div>
               ))}
             </nav>
+            <Button asChild>
+                <Link href="/contact">Donar</Link>
+            </Button>
         </div>
       </header>
     </>

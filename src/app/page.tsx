@@ -159,7 +159,7 @@ export default function Home() {
   return (
     <div className="flex flex-col bg-background text-foreground">
       {/* Hero Section - Desktop */}
-      <section className="hidden md:flex relative w-full h-[calc(100vh-120px)] min-h-[500px] items-center justify-center text-white overflow-hidden">
+      <section className="hidden md:block relative w-full h-[calc(100vh-88px)] min-h-[500px] items-center justify-center text-white overflow-hidden">
         {heroImage && (
           <Image
             src="https://images.unsplash.com/photo-1506126613408-4e05210985c7?q=80&w=2070&auto=format&fit=crop"
@@ -171,7 +171,7 @@ export default function Home() {
           />
         )}
         <div className="absolute inset-0 bg-black/40" />
-        <div className="relative z-10 container mx-auto grid grid-cols-2 items-center">
+        <div className="relative z-10 container mx-auto grid grid-cols-2 items-center h-full">
             <div className="col-span-1">
                 <div className="text-left animate-in fade-in slide-in-from-bottom-12 duration-1000">
                     <p className="text-md md:text-lg">Bienvenido a tu espacio seguro</p>
@@ -187,7 +187,7 @@ export default function Home() {
       </section>
 
       {/* Hero Section - Mobile */}
-      <section className="md:hidden relative w-full h-[60vh] min-h-[400px] flex items-center justify-center text-white overflow-hidden">
+      <section className="md:hidden relative w-full h-[70vh] min-h-[450px] flex flex-col justify-center text-white overflow-hidden">
         {heroImage && (
           <Image
             src="https://images.unsplash.com/photo-1506126613408-4e05210985c7?q=80&w=2070&auto=format&fit=crop"
@@ -205,18 +205,15 @@ export default function Home() {
                 Respira y <span className="text-luz-yellow">Comienza...</span>
             </h1>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 z-20 pb-8">
+            <MobileBubbleCarousel />
+        </div>
       </section>
 
-
-      {/* Floating "How are you feeling" section */}
-       <section className="container mx-auto -mt-24 md:-mt-20 relative z-20 animate-in fade-in slide-in-from-bottom-12 duration-1000">
+      {/* Floating "How are you feeling" section - DESKTOP ONLY */}
+       <section className="hidden md:block container mx-auto -mt-20 relative z-20 animate-in fade-in slide-in-from-bottom-12 duration-1000">
         <div className="bg-background rounded-2xl shadow-2xl p-6 md:p-8 max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-headline font-bold text-center mb-6 text-primary">¿Cómo te sientes hoy?</h2>
-            {/* Mobile Carousel */}
-            <div className="md:hidden">
-              <MobileBubbleCarousel />
-            </div>
-            {/* Desktop Carousel */}
             <div className="hidden md:block">
               <DesktopBubbleCarousel />
             </div>
