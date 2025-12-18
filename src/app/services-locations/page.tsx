@@ -1,11 +1,8 @@
 import Image from 'next/image';
 import { GitBranch, Activity, Handshake, Brain, Syringe, Users, MapPin, Phone, Clock } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { locations } from '@/lib/data';
 import { Button } from '@/components/ui/button';
-
-const servicesImage = PlaceHolderImages.find((img) => img.id === 'services-header');
 
 const services = [
     {
@@ -45,15 +42,12 @@ export default function ServicesLocationsPage() {
   return (
     <div className="bg-background">
       <div className="relative h-80 w-full">
-        {servicesImage && (
-             <Image
-                src={servicesImage.imageUrl}
-                alt={servicesImage.description}
-                data-ai-hint={servicesImage.imageHint}
-                fill
-                className="object-cover"
-              />
-        )}
+         <Image
+            src="/programas/HeaderProgramas.png"
+            alt="Programas y Sedes Header"
+            fill
+            className="object-cover"
+          />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-black/50 to-black/30 flex items-center justify-center">
             <h1 className="text-6xl font-headline text-primary-foreground font-bold tracking-wider uppercase">Programas y Sedes</h1>
         </div>

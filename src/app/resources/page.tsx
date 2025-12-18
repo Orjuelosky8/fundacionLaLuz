@@ -76,6 +76,7 @@ const ResourceSection = ({ title, resources, bgColor, id }: { title: string, res
 };
 
 export default function ResourcesPage() {
+    const spotifyEmbed = '<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4uA0C14WNcv4w73lHtIJAJ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>';
     return (
         <div className="bg-background">
              <div className="relative h-80 w-full bg-primary/10">
@@ -148,6 +149,10 @@ export default function ResourcesPage() {
                                         </div>
                                    </div>
                                </div>
+                           </div>
+                           <div className="mt-16 text-center">
+                                <h3 className="text-2xl font-headline text-primary mb-4">¿Interesado en el tema? ¡Escucha nuestro podcast informativo!</h3>
+                                <div dangerouslySetInnerHTML={{ __html: spotifyEmbed }} />
                            </div>
                         </TabsContent>
                          <TabsContent value="webinars">
