@@ -173,15 +173,15 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 container mx-auto grid grid-cols-2 items-center">
             <div className="col-span-1">
-                {/* Container for the future PNG */}
-            </div>
-            <div className="col-span-1 flex justify-end">
-                <div className="text-right animate-in fade-in slide-in-from-bottom-12 duration-1000">
+                <div className="text-left animate-in fade-in slide-in-from-bottom-12 duration-1000">
                     <p className="text-md md:text-lg">Bienvenido a tu espacio seguro</p>
                     <h1 className="text-3xl md:text-5xl font-bold font-headline mt-2">
                         Respira y <span className="text-luz-yellow">Comienza...</span>
                     </h1>
                 </div>
+            </div>
+            <div className="col-span-1 flex justify-end">
+                 {/* Container for the future PNG */}
             </div>
         </div>
       </section>
