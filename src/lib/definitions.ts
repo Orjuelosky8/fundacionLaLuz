@@ -11,3 +11,12 @@ export type Location = {
   phone: string;
   hours: string;
 };
+
+export type ResourceCard = {
+    id: string;
+    title: string;
+    description?: string;
+    imageUrl: string;
+    href: string;
+    type: 'quiz' | 'resource';
+}

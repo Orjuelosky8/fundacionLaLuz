@@ -59,6 +59,54 @@
       "description": "Portrait of a third smiling person.",
       "imageUrl": "https://images.unsplash.com/photo-1710974481447-fb001ad9ad5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwZXJzb24lMjBmYWNlfGVufDB8fHx8MTc2NTYyNjMwMXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "person face"
+    },
+    {
+      "id": "quiz-relationship",
+      "description": "Illustration about relationships.",
+      "imageUrl": "https://images.unsplash.com/photo-1697738855045-d61710a9e509?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cmVsYXRpb25zaGlwJTIwaWxsdXN0cmF0aW9ufGVufDB8fHx8MTc2NjA3NTQ5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "relationship illustration"
+    },
+    {
+      "id": "quiz-trauma",
+      "description": "Illustration about childhood trauma.",
+      "imageUrl": "https://images.unsplash.com/photo-1451481454041-104482d8e284?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjaGlsZGhvb2QlMjB0cmF1bWF8ZW58MHx8fHwxNzY2MDc1NDkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "childhood trauma"
+    },
+    {
+      "id": "quiz-love-language",
+      "description": "Illustration about love languages.",
+      "imageUrl": "https://images.unsplash.com/photo-1672638224571-9af5104f4755?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsb3ZlJTIwbGFuZ3VhZ2V8ZW58MHx8fHwxNzY2MDc1NDkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "love language"
+    },
+    {
+      "id": "quiz-anxiety",
+      "description": "Illustration about anxiety.",
+      "imageUrl": "https://images.unsplash.com/photo-1688649102457-4ccb4a27a8c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhbnhpZXR5JTIwaWxsdXN0cmF0aW9ufGVufDB8fHx8MTc2NjA3NTQ5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "anxiety illustration"
+    },
+    {
+      "id": "resource-tech-addiction",
+      "description": "Teenagers using their phones.",
+      "imageUrl": "https://images.unsplash.com/photo-1533642392909-63b7c067812f?q=80&w=800&auto=format&fit=crop",
+      "imageHint": "teens phones"
+    },
+    {
+      "id": "resource-somatic",
+      "description": "A person receiving therapy.",
+      "imageUrl": "https://images.unsplash.com/photo-1620712711316-232a4e7f7e91?q=80&w=800&auto=format&fit=crop",
+      "imageHint": "somatic therapy"
+    },
+    {
+      "id": "resource-support-addiction",
+      "description": "Hands holding each other for support.",
+      "imageUrl": "https://images.unsplash.com/photo-1549488344-cbb6c34cf08b?q=80&w=800&auto=format&fit=crop",
+      "imageHint": "support hands"
+    },
+    {
+      "id": "resource-mindfulness",
+      "description": "A person meditating peacefully.",
+      "imageUrl": "https://images.unsplash.com/photo-1506126613408-4e7e9b7b0d99?q=80&w=800&auto=format&fit=crop",
+      "imageHint": "person meditating"
     }
   ]
 }
