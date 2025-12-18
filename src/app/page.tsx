@@ -100,8 +100,8 @@ const MobileBubbleCarousel = () => {
         <div className="relative w-full h-40 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
              <div className="absolute flex animate-scroll">
                 {[...carouselBubbles, ...carouselBubbles].map((bubble, index) => (
-                    <div 
-                        key={`${bubble.label}-${index}`} 
+                    <div
+                        key={`${bubble.label}-${index}`}
                         className="group relative mx-2 shrink-0 flex flex-col items-center animate-wave-up-down"
                         style={{ animationDelay: `${index * 0.2}s` }}
                     >
@@ -133,8 +133,8 @@ const DesktopBubbleCarousel = () => {
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_5%,white_95%,transparent)]">
             <div className="flex animate-scroll">
                 {[...carouselBubbles, ...carouselBubbles].map((bubble, index) => (
-                    <div 
-                        key={`${bubble.label}-desktop-${index}`} 
+                    <div
+                        key={`${bubble.label}-desktop-${index}`}
                         className="group relative mx-2 shrink-0 flex flex-col items-center"
                     >
                         <Button
@@ -158,8 +158,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col bg-background text-foreground">
-      {/* Hero Section */}
-      <section className="relative w-full h-[60vh] md:h-[calc(100vh-140px)] min-h-[400px] flex items-center justify-center text-white overflow-hidden">
+      {/* Hero Section - Desktop */}
+      <section className="hidden md:flex relative w-full h-[calc(100vh-120px)] min-h-[500px] items-center justify-center text-white overflow-hidden">
         {heroImage && (
           <Image
             src="https://images.unsplash.com/photo-1506126613408-4e05210985c7?q=80&w=2070&auto=format&fit=crop"
@@ -185,6 +185,28 @@ export default function Home() {
             </div>
         </div>
       </section>
+
+      {/* Hero Section - Mobile */}
+      <section className="md:hidden relative w-full h-[60vh] min-h-[400px] flex items-center justify-center text-white overflow-hidden">
+        {heroImage && (
+          <Image
+            src="https://images.unsplash.com/photo-1506126613408-4e05210985c7?q=80&w=2070&auto=format&fit=crop"
+            alt="Persona meditando en un muelle"
+            data-ai-hint="person meditating"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+        )}
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 text-center animate-in fade-in slide-in-from-bottom-12 duration-1000">
+            <p className="text-md md:text-lg">Bienvenido a tu espacio seguro</p>
+            <h1 className="text-3xl md:text-5xl font-bold font-headline mt-2">
+                Respira y <span className="text-luz-yellow">Comienza...</span>
+            </h1>
+        </div>
+      </section>
+
 
       {/* Floating "How are you feeling" section */}
        <section className="container mx-auto -mt-24 md:-mt-20 relative z-20 animate-in fade-in slide-in-from-bottom-12 duration-1000">
@@ -340,3 +362,5 @@ export default function Home() {
     </div>
   );
 }
+
+    

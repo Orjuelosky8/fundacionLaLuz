@@ -257,16 +257,16 @@ export function Header() {
           Probablemente podemos ayudarte
         </div>
         <div className="container flex flex-col items-center">
-           <Link href="/" className="my-2">
+           <Link href="/" className="my-1">
             <Image
                 src="/logoFundacionLaLuz.png"
                 alt="Logo Fundacion la Luz"
-                width={100}
-                height={40}
+                width={80}
+                height={32}
                 priority
             />
             </Link>
-            <nav className="flex gap-8 items-center pb-2">
+            <nav className="flex gap-8 items-center pb-1">
               {navLinks.map((link) => (
                   <div key={link.label}>{renderDesktopLink(link)}</div>
               ))}
@@ -276,3 +276,5 @@ export function Header() {
     </>
   );
 }
+
+    
