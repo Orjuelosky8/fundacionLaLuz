@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { GitBranch, Activity, Handshake, Brain, Syringe, Users, MapPin, Phone, Clock } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -64,9 +65,9 @@ export default function ServicesLocationsPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {services.map((service) => (
-                     <Card key={service.title} className="bg-card/90 border-border hover:border-primary transition-all duration-300 flex flex-col text-center shadow-lg hover:shadow-2xl transform hover:-translate-y-2">
+                     <Card key={service.title} className="group bg-card/90 border-border hover:border-primary transition-all duration-300 flex flex-col text-center shadow-lg hover:shadow-2xl transform hover:-translate-y-2">
                         <CardHeader className="items-center">
-                            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+                            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4 transition-transform duration-500 group-hover:rotate-[360deg]">
                                 <service.icon className="h-8 w-8" />
                             </div>
                             <CardTitle className="font-headline text-2xl">{service.title}</CardTitle>
