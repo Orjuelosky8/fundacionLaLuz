@@ -110,11 +110,11 @@ export default function Home() {
   return (
     <div className="flex flex-col bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative w-full overflow-hidden bg-primary pb-24 md:pb-32 pt-32 md:pt-40 text-primary-foreground">
+      <section className="relative w-full overflow-hidden bg-primary text-primary-foreground">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.1),_transparent_40%)]"></div>
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,254,0.1),_transparent_40%)]"></div>
           
-          <div className="container relative z-10 text-center animate-in fade-in slide-in-from-top-12 duration-1000">
+          <div className="container relative z-10 text-center animate-in fade-in slide-in-from-top-12 duration-1000 pt-32 md:pt-40 pb-32 md:pb-48">
             {/* Desktop Hero */}
             <div className="hidden md:block">
                 <LuziaIcon className="w-24 h-24 text-luz-yellow mx-auto mb-4" />
@@ -159,9 +159,9 @@ export default function Home() {
             </div>
 
           </div>
-          <div 
+           <div 
             className="absolute bottom-0 left-0 w-full h-24 bg-background" 
-            style={{ clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 50% 100%, 0% 0%)' }}
+            style={{ clipPath: 'ellipse(75% 60% at 50% 100%)' }}
           />
       </section>
 
