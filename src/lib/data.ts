@@ -51,9 +51,9 @@ export const locations: Location[] = [
 export const quickQuizzes: ResourceCard[] = [
   {
     id: 'quiz-1',
-    title: '¿Estoy listo para una relación? | Quiz divertido y gratuito',
-    imageUrl: PlaceHolderImages.find(p => p.id === 'quiz-relationship')?.imageUrl || '',
-    href: '#',
+    title: 'Autoevaluación de Ansiedad y Estrés',
+    imageUrl: PlaceHolderImages.find(p => p.id === 'quiz-anxiety')?.imageUrl || '',
+    href: '/mental-health-assessment',
     type: 'quiz',
   },
   {
@@ -70,11 +70,11 @@ export const quickQuizzes: ResourceCard[] = [
     href: '#',
     type: 'quiz',
   },
-   {
+  {
     id: 'quiz-4',
-    title: 'Autoevaluación de Ansiedad y Estrés',
-    imageUrl: PlaceHolderImages.find(p => p.id === 'quiz-anxiety')?.imageUrl || '',
-    href: '/mental-health-assessment',
+    title: '¿Estoy listo para una relación? | Quiz divertido y gratuito',
+    imageUrl: PlaceHolderImages.find(p => p.id === 'quiz-relationship')?.imageUrl || '',
+    href: '#',
     type: 'quiz',
   },
 ];
@@ -84,7 +84,7 @@ export const therapyResources: ResourceCard[] = [
     id: 'resource-1',
     title: '¿Es real la adicción a la tecnología en adolescentes?',
     description: 'Nuestras vidas giran en torno a la tecnología e internet más que nunca...',
-    imageUrl: PlaceHolderImages.find(p => p.id === 'resource-tech-addiction')?.imageUrl || '',
+    imageUrl: '/resources/rs1.gif',
     href: '#',
     type: 'resource',
   },
@@ -92,7 +92,7 @@ export const therapyResources: ResourceCard[] = [
     id: 'resource-2',
     title: '¿Qué es la Experiencia Somática? 4 Ejercicios para Sanar',
     description: 'Puede que hayas oído hablar de la terapia somática, pero te has preguntado...',
-    imageUrl: PlaceHolderImages.find(p => p.id === 'resource-somatic')?.imageUrl || '',
+    imageUrl: '/resources/rs2.gif',
     href: '#',
     type: 'resource',
   },
